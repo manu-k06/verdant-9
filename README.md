@@ -22,11 +22,12 @@
 
 ---
 
-## 🔑 Canonical Final Answer
+## 🔑 Canonical Final Answer & Next Stage Clearance Password
 ```
-NIGHTBLOOM
+Solution: NIGHTBLOOM
+Clearance Password: VERDANT-NYCTO-2049
 ```
-*(Case-insensitive: accepts `NIGHTBLOOM`, `nightbloom`, or `Nightbloom`)*
+*(Clearance password is automatically displayed with one-click copy on completion.html)*
 
 ---
 
