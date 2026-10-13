@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 03: Growth Analysis — VERDANT-9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="verdant-shell">
+    <!-- TopBar -->
+    <header class="facility-topbar" role="banner">
+      <div class="topbar-left">
+        <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+        <a href="index.html" class="facility-brand">
+          <div class="brand-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">VERDANT-9</div>
+            <div class="brand-sub">BOTANICAL RESEARCH FACILITY</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="topbar-center">
+        <div class="status-pill status-archive">
+          <span class="status-dot pulsing"></span>
+          <span class="status-label">ARCHIVE STATUS:</span>
+          <span id="archiveStatusVal" class="status-val">PARTIALLY RECOVERED</span>
+        </div>
+        <div class="status-pill hidden-mobile">
+          <span class="status-label">MODULE:</span>
+          <span class="status-val">03 // GROWTH ANALYSIS</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button id="topbarEvidenceBtn" class="btn-toolbar" title="View Evidence Dossier">
+          🏆 <span class="toolbar-btn-text">Evidence</span>
+          <span id="evidenceCounter" class="evidence-counter">0/4</span>
+        </button>
+        <button id="topbarLogBtn" class="btn-toolbar" title="View Activity Log">
+          📟 <span class="toolbar-btn-text">Log</span>
+        </button>
+        <button id="topbarResetBtn" class="btn-toolbar btn-toolbar-danger" title="Reset Progress">
+          ↺ <span class="toolbar-btn-text">Reset</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="facility-body-grid">
+      <!-- Sidebar -->
+      <aside id="researchSidebar" class="research-sidebar" aria-label="Research Modules">
+        <div class="sidebar-header">
+          <div class="sidebar-section-title">RESEARCH MODULES</div>
+          <div class="sidebar-subtext">Classified Dossier 2049-N9</div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-link">
+            <div class="link-icon-col">📄</div>
+            <div class="link-text-col">
+              <div class="link-title">Facility Briefing</div>
+              <div class="link-subtitle">Archive Overview & Memos</div>
+            </div>
+          </a>
+
+          <a href="specimens.html" class="sidebar-link">
+            <div class="link-icon-col">🌿</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 01: Catalogue</div>
+              <div class="link-subtitle">Specimen Screening</div>
+              <div id="sidePill1" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="lab-notes.html" class="sidebar-link">
+            <div class="link-icon-col">🧪</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 02: Lab Notes</div>
+              <div class="link-subtitle">Chronobiology Data</div>
+              <div id="sidePill2" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="growth-chart.html" class="sidebar-link active">
+            <div class="link-icon-col">📈</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 03: Growth Analysis</div>
+              <div class="link-subtitle">Cycle Synchronization</div>
+              <div id="sidePill3" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="field-report.html" class="sidebar-link">
+            <div class="link-icon-col">📋</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 04: Field Report</div>
+              <div class="link-subtitle">Final Synthesis</div>
+              <div id="sidePill4" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="completion.html" class="sidebar-link">
+            <div class="link-icon-col">✨</div>
+            <div class="link-text-col">
+              <div class="link-title">Conclusion: Nightbloom</div>
+              <div class="link-subtitle">Experiment Discovery</div>
+            </div>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Page Content -->
+      <main class="facility-main-content">
+        <div class="module-page-container">
+          <!-- Header Banner -->
+          <section class="module-header-banner paper-sheet">
+            <div class="banner-top-row">
+              <div class="module-badge font-mono">MODULE 03 // TEMPORAL GROWTH DECODING</div>
+              <span id="moduleHeaderStamp" class="archive-stamp stamp-active font-mono">🔒 SIGNAL INTERVAL UNRESOLVED</span>
+            </div>
+
+            <h1 class="module-page-title">Growth Cycle Analysis</h1>
+            <p class="module-page-desc">
+              Decode the periodic growth intervals documented by the greenhouse telemetry array. Identify the specific observation slot where specimen activity achieves its first sustained threshold.
+            </p>
+
+            <!-- Voss Annotation -->
+            <div class="voss-memo-card paper-sheet-torn">
+              <div class="voss-memo-header">
+                <span class="font-mono">Dr. Elara Voss — Temporal Slot Concordance</span>
+                <span class="font-mono">19 October 2049, 05:40</span>
+              </div>
+              <div class="voss-memo-text">
+                “CRITICAL TELEMETRY DIRECTIVE // OBSERVATION SLOT ANALYSIS:
+                A temporal window qualifies as a FIRST SUSTAINED signal if and only if:
+                1. Bio-sensor amplitude reaches saturation threshold (Ξ ≥ 80 units).
+                2. Signal variance remains stable (Δσ ≤ 5.0%).
+                All intervals below Ξ = 80 represent transient precursor activity. Identify the earliest observation slot in the chronogram progression where this sustained threshold is breached.”
+              </div>
+              <div class="voss-memo-footer font-mono">
+                LOG REF: GROWTH-DECODE-LOG-VOSS-9
+              </div>
+            </div>
+          </section>
+
+          <!-- Main Grid -->
+          <div class="growth-layout-grid">
+            <!-- Left Data Visualizations -->
+            <div class="growth-data-col">
+              <!-- Switcher Tabs -->
+              <div class="growth-tabs-bar">
+                <button id="tabTimeline" class="view-tab-btn active">📈 Timeline Signal Chart</button>
+                <button id="tabOrbital" class="view-tab-btn">🧭 24-Hour Orbital Cycle</button>
+              </div>
+
+              <!-- Visualizations Box -->
+              <div class="growth-viz-card paper-sheet">
+                <!-- Timeline View -->
+                <div id="timelineContainer">
+                  <div class="viz-header">
+                    <div>
+                      <h3 class="viz-title font-serif">Observation Slot Progression</h3>
+                      <p class="viz-sub font-mono">Sequence: 03, 06, 09, 12, 15, ? (+3 Observation Intervals)</p>
+                    </div>
+                  </div>
+
+                  <div class="svg-timeline-wrapper">
+                    <svg viewBox="0 0 540 180" class="growth-svg" role="img">
+                      <!-- Baseline Noise Zone -->
+                      <rect x="30" y="85" width="480" height="65" fill="rgba(185, 155, 96, 0.08)" />
+                      <line x1="30" y1="85" x2="510" y2="85" stroke="#B99B60" stroke-width="1.5" stroke-dasharray="4 4" />
+                      <text x="500" y="80" text-anchor="end" font-size="9" fill="#B99B60" font-family="monospace">
+                        CRITICAL THRESHOLD (Ξ ≥ 80 units)
+                      </text>
+
+                      <!-- Step Connecting Line -->
+                      <path d="M 60,135 L 140,95 L 220,40 L 300,52 L 380,105 L 460,140" fill="none" stroke="#547C59" stroke-width="2.5" />
+
+                      <!-- Slot 03 -->
+                      <g class="slot-node" data-slot="03" data-amp="21" data-status="Transient Baseline Noise (Ξ = 21 < 80)" data-time="23:00" data-notes="Initial biochemical murmur; intermittent photon bursts below critical activation." style="cursor: pointer;">
+                        <circle cx="60" cy="135" r="7" fill="#FBFAF5" stroke="#547C59" stroke-width="2.5"/>
+                        <text x="60" y="165" text-anchor="middle" font-size="11" fill="#547C59" font-family="monospace">Slot 03</text>
+                        <text x="60" y="123" text-anchor="middle" font-size="10" font-weight="bold" fill="#252E29" font-family="monospace">21</text>
+                      </g>
+
+                      <!-- Slot 06 -->
+                      <g class="slot-node" data-slot="06" data-amp="58" data-status="Pre-Activation Phase (Ξ = 58 < 80)" data-time="02:00" data-notes="Signal rising steadily; enzymatic cascade activating but below critical threshold." style="cursor: pointer;">
+                        <circle cx="140" cy="95" r="7" fill="#FBFAF5" stroke="#547C59" stroke-width="2.5"/>
+                        <text x="140" y="165" text-anchor="middle" font-size="11" fill="#547C59" font-family="monospace">Slot 06</text>
+                        <text x="140" y="83" text-anchor="middle" font-size="10" font-weight="bold" fill="#252E29" font-family="monospace">58</text>
+                      </g>
+
+                      <!-- Slot 09 -->
+                      <g class="slot-node" data-slot="09" data-amp="87" data-status="FIRST SUSTAINED CRITICAL THRESHOLD (Ξ = 87 ≥ 80, Δσ = 2.1%)" data-time="05:00" data-notes="Threshold condition satisfied. Emission stabilizes into continuous 498nm resonance." style="cursor: pointer;">
+                        <circle cx="220" cy="40" r="7" fill="#FBFAF5" stroke="#547C59" stroke-width="2.5"/>
+                        <text x="220" y="165" text-anchor="middle" font-size="11" font-weight="bold" fill="#183D32" font-family="monospace">Slot 09</text>
+                        <text x="220" y="28" text-anchor="middle" font-size="10" font-weight="bold" fill="#252E29" font-family="monospace">87</text>
+                      </g>
+
+                      <!-- Slot 12 -->
+                      <g class="slot-node" data-slot="12" data-amp="76" data-status="Post-Peak Signal (Ξ = 76 < 80)" data-time="08:00" data-notes="Signal decay slope initiated after dawn lights-on." style="cursor: pointer;">
+                        <circle cx="300" cy="52" r="7" fill="#FBFAF5" stroke="#547C59" stroke-width="2.5"/>
+                        <text x="300" y="165" text-anchor="middle" font-size="11" fill="#547C59" font-family="monospace">Slot 12</text>
+                        <text x="300" y="40" text-anchor="middle" font-size="10" font-weight="bold" fill="#252E29" font-family="monospace">76</text>
+                      </g>
+
+                      <!-- Slot 15 -->
+                      <g class="slot-node" data-slot="15" data-amp="42" data-status="Dissipation Slope (Ξ = 42 < 80)" data-time="11:00" data-notes="Cellular store depletion. Gradual decay." style="cursor: pointer;">
+                        <circle cx="380" cy="105" r="7" fill="#FBFAF5" stroke="#547C59" stroke-width="2.5"/>
+                        <text x="380" y="165" text-anchor="middle" font-size="11" fill="#547C59" font-family="monospace">Slot 15</text>
+                        <text x="380" y="93" text-anchor="middle" font-size="10" font-weight="bold" fill="#252E29" font-family="monospace">42</text>
+                      </g>
+
+                      <!-- Slot 18 (? in Sequence) -->
+                      <g class="slot-node" data-slot="18" data-amp="15" data-status="Sequence Continuation Slot (? = 18)" data-time="14:00" data-notes="Next arithmetic progression point (+3). Quiescent baseline returned." style="cursor: pointer;">
+                        <circle cx="460" cy="140" r="7" fill="#FBFAF5" stroke="#547C59" stroke-width="2.5"/>
+                        <text x="460" y="165" text-anchor="middle" font-size="11" fill="#547C59" font-family="monospace">Slot 18 (?)</text>
+                        <text x="460" y="128" text-anchor="middle" font-size="10" font-weight="bold" fill="#252E29" font-family="monospace">15</text>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Orbital View (Initially Hidden) -->
+                <div id="orbitalContainer" style="display: none;">
+                  <div class="viz-header">
+                    <div>
+                      <h3 class="viz-title font-serif">24-Hour Circular Chronogram</h3>
+                      <p class="viz-sub font-mono">Radial positioning of observation windows</p>
+                    </div>
+                  </div>
+                  <div class="orbital-svg-wrapper">
+                    <svg viewBox="0 0 300 300" class="orbital-svg" role="img">
+                      <circle cx="150" cy="150" r="115" fill="none" stroke="#E3DAC7" stroke-width="2" stroke-dasharray="3 3"/>
+                      <circle cx="150" cy="150" r="75" fill="none" stroke="#C9D8C1" stroke-width="1.5"/>
+                      <circle cx="150" cy="150" r="30" fill="#183D32"/>
+                      <text x="150" y="154" text-anchor="middle" fill="#72D9C5" font-size="9" font-family="monospace" font-weight="bold">V-09 CORE</text>
+                      <!-- Points around circle -->
+                      <g class="slot-node" data-slot="03" data-amp="21" data-status="Transient Baseline Noise" data-time="23:00" data-notes="Initial biochemical murmur." style="cursor: pointer;"><circle cx="150" cy="65" r="8" fill="#FBFAF5" stroke="#183D32" stroke-width="2"/><text x="150" y="68" text-anchor="middle" font-size="7" font-weight="bold" font-family="monospace">03</text></g>
+                      <g class="slot-node" data-slot="06" data-amp="58" data-status="Pre-Activation Phase" data-time="02:00" data-notes="Signal rising steadily." style="cursor: pointer;"><circle cx="230" cy="105" r="8" fill="#FBFAF5" stroke="#183D32" stroke-width="2"/><text x="230" y="108" text-anchor="middle" font-size="7" font-weight="bold" font-family="monospace">06</text></g>
+                      <g class="slot-node" data-slot="09" data-amp="87" data-status="FIRST SUSTAINED CRITICAL THRESHOLD" data-time="05:00" data-notes="Threshold condition satisfied." style="cursor: pointer;"><circle cx="235" cy="195" r="8" fill="#FBFAF5" stroke="#183D32" stroke-width="2"/><text x="235" y="198" text-anchor="middle" font-size="8" font-weight="bold" font-family="monospace">09</text></g>
+                      <g class="slot-node" data-slot="12" data-amp="76" data-status="Sustained Plateau" data-time="08:00" data-notes="Secondary plateau maintained." style="cursor: pointer;"><circle cx="150" cy="235" r="8" fill="#FBFAF5" stroke="#183D32" stroke-width="2"/><text x="150" y="238" text-anchor="middle" font-size="7" font-weight="bold" font-family="monospace">12</text></g>
+                      <g class="slot-node" data-slot="15" data-amp="42" data-status="Dissipation Slope" data-time="11:00" data-notes="Cellular store depletion." style="cursor: pointer;"><circle cx="70" cy="195" r="8" fill="#FBFAF5" stroke="#183D32" stroke-width="2"/><text x="70" y="198" text-anchor="middle" font-size="7" font-weight="bold" font-family="monospace">15</text></g>
+                      <g class="slot-node" data-slot="18" data-amp="15" data-status="Sequence Continuation Slot (? = 18)" data-time="14:00" data-notes="Next arithmetic progression point." style="cursor: pointer;"><circle cx="65" cy="105" r="8" fill="#FBFAF5" stroke="#183D32" stroke-width="2"/><text x="65" y="108" text-anchor="middle" font-size="7" font-weight="bold" font-family="monospace">18</text></g>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Inspected Slot Box -->
+                <div id="slotDetailBox" class="slot-detail-box font-mono" style="display: none;">
+                  <div id="slotDetailTitle" class="slot-detail-header"><strong>SLOT 09</strong> — THRESHOLD ANALYSIS</div>
+                  <div class="slot-detail-grid">
+                    <div>Time: <strong id="slotDetailTime">05:00</strong></div>
+                    <div>Amplitude: <strong id="slotDetailAmp">87 units</strong></div>
+                    <div>Threshold Status: <strong id="slotDetailThreshold">Ξ ≥ 80 (SUSTAINED)</strong></div>
+                  </div>
+                  <p id="slotDetailNotes" class="slot-notes"></p>
+                </div>
+              </div>
+
+              <!-- Supplementary Arithmetic Sequence Card -->
+              <div class="sequence-analysis-card paper-sheet font-mono">
+                <h4 class="font-serif">Arithmetic Schedule Series</h4>
+                <div class="sequence-display">
+                  <span class="seq-num">03</span>
+                  <span class="seq-arrow">→</span>
+                  <span class="seq-num">06</span>
+                  <span class="seq-arrow">→</span>
+                  <span class="seq-num">09</span>
+                  <span class="seq-arrow">→</span>
+                  <span class="seq-num">12</span>
+                  <span class="seq-arrow">→</span>
+                  <span class="seq-num">15</span>
+                  <span class="seq-arrow">→</span>
+                  <span class="seq-num seq-unknown">? (18)</span>
+                </div>
+                <p class="sequence-caption">
+                  Observation step interval: <strong>+3</strong>. Cross-reference biosensor telemetry for each slot against Dr. Voss's sustained threshold criteria (Ξ ≥ 80 units).
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Column: Verification Form -->
+            <div class="growth-form-col">
+              <div class="code-entry-card paper-sheet">
+                <h2 class="code-card-heading font-serif">Submit Observation Slot</h2>
+                <p class="code-card-sub">
+                  Enter the two-digit observation slot code where the biological signal first crossed the sustained threshold.
+                </p>
+
+                <form id="growthSlotForm" class="code-form">
+                  <div class="form-group" style="margin-bottom: 1rem;">
+                    <label for="slotInput" class="font-mono form-label">TWO-DIGIT SLOT IDENTIFIER (00 - 99):</label>
+                    <input id="slotInput" type="text" maxlength="2" placeholder="ENTER 2-DIGIT SLOT (00 - 99)" class="form-input slot-code-input" autocomplete="off" />
+                  </div>
+
+                  <div id="growthFeedback" style="display: none;" class="feedback-alert font-mono"></div>
+
+                  <div id="completedGrowthView" style="display: none;" class="success-recovery-card font-mono">
+                    <div class="recovery-lead">
+                      <strong>✓ GROWTH PATTERN VERIFIED</strong>
+                    </div>
+                    <p>Observation Slot: <strong>09</strong></p>
+                    <p>Specimen Code Synthesis: <strong>V-09</strong> matches Slot <strong>09</strong>.</p>
+                    <a href="field-report.html" class="btn btn-primary btn-block">Proceed to Module 04: Field Report →</a>
+                  </div>
+
+                  <button id="submitSlotBtn" type="submit" class="btn btn-primary btn-block">
+                    Verify Slot Identifier
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Progress Bar -->
+    <footer class="facility-progress-bar" role="contentinfo">
+      <div class="progress-container">
+        <div class="progress-summary-col">
+          <div class="progress-label">
+            <span id="progressPercent" class="progress-percent">0%</span>
+            <span id="progressDesc" class="progress-desc">RECONSTRUCTED (0/4)</span>
+          </div>
+          <div class="progress-track"><div id="progressFill" class="progress-fill" style="width: 0%;"></div></div>
+        </div>
+        <div class="progress-steps-col">
+          <a href="specimens.html" id="stepBadge1" class="step-badge-btn" title="Module 01"><div class="step-num">01</div><div class="step-meta"><span class="step-title">Specimen</span><span id="stepToken1" class="step-token font-mono">---</span></div></a>
+          <a href="lab-notes.html" id="stepBadge2" class="step-badge-btn" title="Module 02"><div class="step-num">02</div><div class="step-meta"><span class="step-title">Lab Notes</span><span id="stepToken2" class="step-token font-mono">---</span></div></a>
+          <a href="growth-chart.html" id="stepBadge3" class="step-badge-btn step-current" title="Module 03"><div class="step-num">03</div><div class="step-meta"><span class="step-title">Growth Slot</span><span id="stepToken3" class="step-token font-mono">---</span></div></a>
+          <a href="field-report.html" id="stepBadge4" class="step-badge-btn" title="Module 04"><div class="step-num">04</div><div class="step-meta"><span class="step-title">Field Report</span><span id="stepToken4" class="step-token font-mono">---</span></div></a>
+        </div>
+        <div class="progress-action-col"><button id="bottomEvidenceBtn" class="btn btn-secondary btn-sm">🏆 Evidence Dossier</button></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Evidence Modal -->
+  <div id="evidenceModal" class="modal-backdrop">
+    <div class="modal-container evidence-modal">
+      <div class="modal-header"><h3 class="font-serif">RESEARCH DOSSIER & EVIDENCE</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body">
+        <div class="evidence-list">
+          <div id="evItem1" class="evidence-card evidence-locked"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 01</span><span id="evItem1Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div><div id="evItem1Val" class="evidence-value-box font-mono">NOT RECOVERED</div></div>
+          <div id="evItem2" class="evidence-card evidence-locked"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 02</span><span id="evItem2Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div><div id="evItem2Val" class="evidence-value-box font-mono">NOT RECOVERED</div></div>
+          <div id="evItem3" class="evidence-card evidence-locked"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 03</span><span id="evItem3Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div><div id="evItem3Val" class="evidence-value-box font-mono">NOT RECOVERED</div></div>
+          <div id="evItem4" class="evidence-card evidence-locked"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 04</span><span id="evItem4Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div><div id="evItem4Val" class="evidence-value-box font-mono">NOT RECOVERED</div></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary modal-close-trigger">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Activity Log Modal -->
+  <div id="logModal" class="modal-backdrop">
+    <div class="modal-container log-modal">
+      <div class="modal-header"><h3 class="font-serif">FACILITY ACTIVITY LOG</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body log-modal-body font-mono"><div id="logEntriesList" class="log-entries-list"></div></div>
+      <div class="modal-footer"><span id="logBufferSize" class="font-mono text-muted">0 events</span><button class="btn btn-secondary modal-close-trigger">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Reset Modal -->
+  <div id="resetModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header"><h3 class="font-serif text-warning">Reset Research Archive?</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body"><p>Are you sure you want to clear your current progress and reset all four research modules back to unrecovered state?</p></div>
+      <div class="modal-footer"><button class="btn btn-secondary modal-close-trigger">Cancel</button><button id="confirmResetBtn" class="btn btn-danger">Confirm Reset</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let selectedSlotCode = null;
+      const state = Verdant.getState();
+
+      if (state.completed.m3) {
+        document.getElementById('moduleHeaderStamp').className = 'archive-stamp stamp-recovered font-mono';
+        document.getElementById('moduleHeaderStamp').textContent = '✓ OBSERVATION SLOT VERIFIED: 09';
+        document.getElementById('completedGrowthView').style.display = 'flex';
+        document.getElementById('submitSlotBtn').style.display = 'none';
+      }
+
+      // Hints disabled
+
+      // Tab switcher
+      const tabTimeline = document.getElementById('tabTimeline');
+      const tabOrbital = document.getElementById('tabOrbital');
+      const timelineBox = document.getElementById('timelineContainer');
+      const orbitalBox = document.getElementById('orbitalContainer');
+
+      tabTimeline.addEventListener('click', () => {
+        tabTimeline.classList.add('active');
+        tabOrbital.classList.remove('active');
+        timelineBox.style.display = 'block';
+        orbitalBox.style.display = 'none';
+      });
+
+      tabOrbital.addEventListener('click', () => {
+        tabOrbital.classList.add('active');
+        tabTimeline.classList.remove('active');
+        orbitalBox.style.display = 'block';
+        timelineBox.style.display = 'none';
+      });
+
+      // Node selection
+      function selectSlot(el) {
+        const slot = el.dataset.slot;
+        const amp = el.dataset.amp;
+        const status = el.dataset.status;
+        const time = el.dataset.time;
+        const notes = el.dataset.notes;
+
+        selectedSlotCode = slot;
+
+        const detailBox = document.getElementById('slotDetailBox');
+        detailBox.style.display = 'block';
+        document.getElementById('slotDetailTitle').innerHTML = `<strong>SLOT ${slot}</strong> — ${status}`;
+        document.getElementById('slotDetailTime').textContent = time;
+        document.getElementById('slotDetailAmp').textContent = `${amp} units`;
+        document.getElementById('slotDetailThreshold').textContent = parseInt(amp, 10) >= 80 ? 'Ξ ≥ 80 (SUSTAINED THRESHOLD)' : 'Ξ < 80 (SUB-THRESHOLD)';
+        document.getElementById('slotDetailNotes').textContent = notes;
+
+        document.querySelectorAll('.slot-node').forEach(n => {
+          const circle = n.querySelector('circle:last-of-type') || n.querySelector('circle');
+          if (circle) circle.setAttribute('stroke', n.dataset.slot === slot ? '#183D32' : '#547C59');
+        });
+
+        document.getElementById('growthFeedback').style.display = 'none';
+      }
+
+      document.querySelectorAll('.slot-node').forEach(node => {
+        node.addEventListener('click', () => selectSlot(node));
+      });
+
+      // Submit Form
+      document.getElementById('growthSlotForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const raw = document.getElementById('slotInput').value.trim();
+        const inputVal = raw.length === 1 ? '0' + raw : raw;
+        const feedback = document.getElementById('growthFeedback');
+
+        if (!inputVal) {
+          feedback.className = 'feedback-alert feedback-error font-mono';
+          feedback.textContent = 'Please enter the two-digit observation slot identifier.';
+          feedback.style.display = 'block';
+          return;
+        }
+
+        if (inputVal === '09') {
+          Verdant.unlockModule('m3', 'observationSlot', '09', 'GROWTH PATTERN VERIFIED: Observation slot 09 confirmed as first sustained signal.');
+          feedback.className = 'feedback-alert feedback-success font-mono';
+          feedback.textContent = '✓ GROWTH PATTERN VERIFIED — Observation slot 09 is the first interval to achieve sustained amplitude saturation (Ξ = 87 ≥ 80 units).';
+          feedback.style.display = 'block';
+
+          document.getElementById('moduleHeaderStamp').className = 'archive-stamp stamp-recovered font-mono';
+          document.getElementById('moduleHeaderStamp').textContent = '✓ OBSERVATION SLOT VERIFIED: 09';
+
+          document.getElementById('completedGrowthView').style.display = 'flex';
+          document.getElementById('submitSlotBtn').style.display = 'none';
+        } else if (inputVal === '18') {
+          Verdant.addLog('Slot 18 entered (arithmetic sequence next value, but not the sustained threshold).', 'error', 'ERR-SLOT');
+          feedback.className = 'feedback-alert feedback-error font-mono';
+          feedback.textContent = 'SLOT 18 is the projected next position in the sequence, but its amplitude is quiescent (Ξ = 15 < 80). Cross-examine telemetry to locate the earliest sustained signal.';
+          feedback.style.display = 'block';
+        } else {
+          Verdant.addLog(`Incorrect slot identifier attempted: ${inputVal}.`, 'error', 'ERR-SLOT');
+          feedback.className = 'feedback-alert feedback-error font-mono';
+          feedback.textContent = `SLOT ${inputVal} REJECTED: Amplitude does not satisfy Dr. Voss's sustained threshold criteria (Ξ ≥ 80 units). Re-examine chronogram intervals.`;
+          feedback.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

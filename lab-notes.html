@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 02: Laboratory Notes — VERDANT-9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="verdant-shell">
+    <!-- TopBar -->
+    <header class="facility-topbar" role="banner">
+      <div class="topbar-left">
+        <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+        <a href="index.html" class="facility-brand">
+          <div class="brand-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">VERDANT-9</div>
+            <div class="brand-sub">BOTANICAL RESEARCH FACILITY</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="topbar-center">
+        <div class="status-pill status-archive">
+          <span class="status-dot pulsing"></span>
+          <span class="status-label">ARCHIVE STATUS:</span>
+          <span id="archiveStatusVal" class="status-val">PARTIALLY RECOVERED</span>
+        </div>
+        <div class="status-pill hidden-mobile">
+          <span class="status-label">MODULE:</span>
+          <span class="status-val">02 // LAB DATA</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button id="topbarEvidenceBtn" class="btn-toolbar" title="View Evidence Dossier">
+          🏆 <span class="toolbar-btn-text">Evidence</span>
+          <span id="evidenceCounter" class="evidence-counter">0/4</span>
+        </button>
+        <button id="topbarLogBtn" class="btn-toolbar" title="View Activity Log">
+          📟 <span class="toolbar-btn-text">Log</span>
+        </button>
+        <button id="topbarResetBtn" class="btn-toolbar btn-toolbar-danger" title="Reset Progress">
+          ↺ <span class="toolbar-btn-text">Reset</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="facility-body-grid">
+      <!-- Sidebar -->
+      <aside id="researchSidebar" class="research-sidebar" aria-label="Research Modules">
+        <div class="sidebar-header">
+          <div class="sidebar-section-title">RESEARCH MODULES</div>
+          <div class="sidebar-subtext">Classified Dossier 2049-N9</div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-link">
+            <div class="link-icon-col">📄</div>
+            <div class="link-text-col">
+              <div class="link-title">Facility Briefing</div>
+              <div class="link-subtitle">Archive Overview & Memos</div>
+            </div>
+          </a>
+
+          <a href="specimens.html" class="sidebar-link">
+            <div class="link-icon-col">🌿</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 01: Catalogue</div>
+              <div class="link-subtitle">Specimen Screening</div>
+              <div id="sidePill1" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="lab-notes.html" class="sidebar-link active">
+            <div class="link-icon-col">🧪</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 02: Lab Notes</div>
+              <div class="link-subtitle">Chronobiology Data</div>
+              <div id="sidePill2" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="growth-chart.html" class="sidebar-link">
+            <div class="link-icon-col">📈</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 03: Growth Analysis</div>
+              <div class="link-subtitle">Cycle Synchronization</div>
+              <div id="sidePill3" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="field-report.html" class="sidebar-link">
+            <div class="link-icon-col">📋</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 04: Field Report</div>
+              <div class="link-subtitle">Final Synthesis</div>
+              <div id="sidePill4" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="completion.html" class="sidebar-link">
+            <div class="link-icon-col">✨</div>
+            <div class="link-text-col">
+              <div class="link-title">Conclusion: Nightbloom</div>
+              <div class="link-subtitle">Experiment Discovery</div>
+            </div>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Page Content -->
+      <main class="facility-main-content">
+        <div class="module-page-container">
+          <!-- Header Banner -->
+          <section class="module-header-banner paper-sheet">
+            <div class="banner-top-row">
+              <div class="module-badge font-mono">MODULE 02 // CHRONOBIOLOGY & TELEMETRY</div>
+              <span id="moduleHeaderStamp" class="archive-stamp stamp-active font-mono">🔒 EXPERIMENT UNVERIFIED</span>
+            </div>
+
+            <h1 class="module-page-title">Specimen V-09 Chronobiology Log</h1>
+            <p class="module-page-desc">
+              Inspect the hourly fluorometric sensors recorded after facility lights-out. Determine whether specimen V-09 synchronizes with daylight, dark cycles, or temperature fluctuations.
+            </p>
+
+            <!-- Voss Handwritten Lab Note -->
+            <div class="voss-memo-card paper-sheet-torn">
+              <div class="voss-memo-header">
+                <span class="font-mono">Dr. Elara Voss — Chronobiology Assessment</span>
+                <span class="font-mono">18 October 2049, 03:15</span>
+              </div>
+              <div class="voss-memo-text">
+                “The specimen does not respond to the clock on the wall. It responds to the environment. Find the observation window containing the highest activity, then compare it with the facility's illumination record.”
+              </div>
+              <div class="voss-memo-footer font-mono">
+                ARCHIVE ENTRY: LAB-LOG-EV-2049-88-B
+              </div>
+            </div>
+          </section>
+
+          <!-- Split Layout Grid -->
+          <div class="lab-layout-grid">
+            <!-- Left Column: Chart & Table -->
+            <div class="lab-data-col">
+              <!-- SVG Activity Chart -->
+              <div class="chart-card paper-sheet">
+                <div class="chart-header">
+                  <div>
+                    <h2 class="chart-title font-serif">Relative Activity Curve (Specimen V-09)</h2>
+                    <div class="chart-subtitle font-mono">Sensors: Quantum Spectrometer Array #09 (Relative Activity Units)</div>
+                  </div>
+                  <div class="chart-badge font-mono">
+                    SENSOR ARRAY #09 // CONTINUOUS 24H CHRONOGRAM
+                  </div>
+                </div>
+
+                <div class="svg-chart-wrapper">
+                  <svg id="activitySvg" viewBox="0 0 540 240" class="activity-svg-chart" role="img">
+                    <rect x="45" y="25" width="465" height="170" fill="rgba(24, 61, 50, 0.04)" />
+                    <!-- Grid Lines -->
+                    <line x1="45" y1="195" x2="510" y2="195" stroke="#E0DBCF" stroke-width="1"/>
+                    <line x1="45" y1="152" x2="510" y2="152" stroke="#E0DBCF" stroke-width="1" stroke-dasharray="3 3"/>
+                    <line x1="45" y1="110" x2="510" y2="110" stroke="#E0DBCF" stroke-width="1" stroke-dasharray="3 3"/>
+                    <line x1="45" y1="67" x2="510" y2="67" stroke="#E0DBCF" stroke-width="1" stroke-dasharray="3 3"/>
+                    <line x1="45" y1="25" x2="510" y2="25" stroke="#E0DBCF" stroke-width="1" stroke-dasharray="3 3"/>
+
+                    <text x="36" y="198" text-anchor="end" font-size="10" fill="#7C887F" font-family="monospace">0</text>
+                    <text x="36" y="155" text-anchor="end" font-size="10" fill="#7C887F" font-family="monospace">25</text>
+                    <text x="36" y="113" text-anchor="end" font-size="10" fill="#7C887F" font-family="monospace">50</text>
+                    <text x="36" y="70" text-anchor="end" font-size="10" fill="#7C887F" font-family="monospace">75</text>
+                    <text x="36" y="28" text-anchor="end" font-size="10" fill="#7C887F" font-family="monospace">100</text>
+
+                    <!-- Shaded Area Under Line -->
+                    <path d="M 45,174.6 L 45,174.6 L 138,147.4 L 231,86.2 L 324,40.3 L 417,69.2 L 510,138.9 L 510,195 L 45,195 Z" fill="rgba(114, 217, 197, 0.2)"/>
+
+                    <!-- Main Curve Line -->
+                    <path d="M 45,174.6 L 138,147.4 L 231,86.2 L 324,40.3 L 417,69.2 L 510,138.9" fill="none" stroke="#183D32" stroke-width="3.5" stroke-linecap="round"/>
+
+                    <!-- Interactive Data Points -->
+                    <g class="chart-point" data-index="0" style="cursor: pointer;">
+                      <circle cx="45" cy="174.6" r="6" fill="#FBFAF5" stroke="#183D32" stroke-width="2.5"/>
+                      <text x="45" y="210" text-anchor="middle" font-size="10" fill="#6A786F" font-family="monospace">+0h</text>
+                      <text x="45" y="222" text-anchor="middle" font-size="9" fill="#8A928C" font-family="monospace">20:00</text>
+                    </g>
+
+                    <g class="chart-point" data-index="1" style="cursor: pointer;">
+                      <circle cx="138" cy="147.4" r="6" fill="#FBFAF5" stroke="#183D32" stroke-width="2.5"/>
+                      <text x="138" y="210" text-anchor="middle" font-size="10" fill="#6A786F" font-family="monospace">+2h</text>
+                      <text x="138" y="222" text-anchor="middle" font-size="9" fill="#8A928C" font-family="monospace">22:00</text>
+                    </g>
+
+                    <g class="chart-point" data-index="2" style="cursor: pointer;">
+                      <circle cx="231" cy="86.2" r="6" fill="#FBFAF5" stroke="#183D32" stroke-width="2.5"/>
+                      <text x="231" y="210" text-anchor="middle" font-size="10" fill="#6A786F" font-family="monospace">+4h</text>
+                      <text x="231" y="222" text-anchor="middle" font-size="9" fill="#8A928C" font-family="monospace">00:00</text>
+                    </g>
+
+                    <g class="chart-point" data-index="3" style="cursor: pointer;">
+                      <circle cx="324" cy="40.3" r="6" fill="#FBFAF5" stroke="#183D32" stroke-width="2.5"/>
+                      <text x="324" y="210" text-anchor="middle" font-size="10" fill="#6A786F" font-family="monospace">+6h</text>
+                      <text x="324" y="222" text-anchor="middle" font-size="9" fill="#8A928C" font-family="monospace">02:00</text>
+                    </g>
+
+                    <g class="chart-point" data-index="4" style="cursor: pointer;">
+                      <circle cx="417" cy="69.2" r="6" fill="#FBFAF5" stroke="#183D32" stroke-width="2.5"/>
+                      <text x="417" y="210" text-anchor="middle" font-size="10" fill="#6A786F" font-family="monospace">+8h</text>
+                      <text x="417" y="222" text-anchor="middle" font-size="9" fill="#8A928C" font-family="monospace">04:00</text>
+                    </g>
+
+                    <g class="chart-point" data-index="5" style="cursor: pointer;">
+                      <circle cx="510" cy="138.9" r="6" fill="#FBFAF5" stroke="#183D32" stroke-width="2.5"/>
+                      <text x="510" y="210" text-anchor="middle" font-size="10" fill="#6A786F" font-family="monospace">+10h</text>
+                      <text x="510" y="222" text-anchor="middle" font-size="9" fill="#8A928C" font-family="monospace">06:00</text>
+                    </g>
+
+                    <text x="270" y="238" text-anchor="middle" font-size="10" fill="#547C59" font-family="monospace">Time Elapsed Post-Lights Out (Clock Time)</text>
+                  </svg>
+                </div>
+
+                <div id="pointInspector" class="point-inspection-band font-mono">
+                  <div class="inspect-item">
+                    <span class="inspect-label">TIME ELAPSED:</span>
+                    <span id="inspectHours" class="inspect-val">+6 Hours</span>
+                  </div>
+                  <div class="inspect-item">
+                    <span class="inspect-label">CLOCK TIME:</span>
+                    <span id="inspectClock" class="inspect-val">02:00</span>
+                  </div>
+                  <div class="inspect-item">
+                    <span class="inspect-label">RELATIVE ACTIVITY:</span>
+                    <strong id="inspectActivity" class="inspect-val text-primary">91 units</strong>
+                  </div>
+                  <div class="inspect-item">
+                    <span class="inspect-label">ENVIRONMENT:</span>
+                    <span id="inspectEnv" class="inspect-val">Deep Darkness (Peak biological luminescence registered)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Schedule & Table -->
+              <div class="schedule-table-card paper-sheet">
+                <h3 class="card-section-title font-serif">Facility Lighting Cycle & Experimental Data</h3>
+
+                <div class="schedule-callout-row">
+                  <div class="schedule-box dark-schedule">
+                    <div>
+                      <div class="schedule-title font-mono">🌙 LIGHTS OUT: 20:00</div>
+                      <div class="schedule-detail">Dark cycle commences. Greenhouse shades sealed.</div>
+                    </div>
+                  </div>
+                  <div class="schedule-box day-schedule">
+                    <div>
+                      <div class="schedule-title font-mono">☀️ LIGHTS ON: 06:00</div>
+                      <div class="schedule-detail">Daylight cycle restored. Illumination lamps engaged.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-table-container">
+                  <table class="lab-data-table font-mono">
+                    <thead>
+                      <tr>
+                        <th>Post Lights-Out</th>
+                        <th>Facility Clock</th>
+                        <th>Relative Activity</th>
+                        <th>Sensor Observation</th>
+                      </tr>
+                    </thead>
+                    <tbody id="labTableBody">
+                      <tr data-index="0" style="cursor: pointer;">
+                        <td>+0h</td>
+                        <td><strong>20:00</strong></td>
+                        <td>12</td>
+                        <td>Dark cycle begins (Lights Out)</td>
+                      </tr>
+                      <tr data-index="1" style="cursor: pointer;">
+                        <td>+2h</td>
+                        <td><strong>22:00</strong></td>
+                        <td>28</td>
+                        <td>Full Darkness (Chamber Sealed)</td>
+                      </tr>
+                      <tr data-index="2" style="cursor: pointer;">
+                        <td>+4h</td>
+                        <td><strong>00:00</strong></td>
+                        <td>64</td>
+                        <td>Deep Midnight (Photodetector array engaged)</td>
+                      </tr>
+                      <tr data-index="3" style="cursor: pointer;">
+                        <td>+6h</td>
+                        <td><strong>02:00</strong></td>
+                        <td>91</td>
+                        <td>Deep Darkness (Peak biological luminescence registered)</td>
+                      </tr>
+                      <tr data-index="4" style="cursor: pointer;">
+                        <td>+8h</td>
+                        <td><strong>04:00</strong></td>
+                        <td>74</td>
+                        <td>Late Darkness (Phosphor decay slope)</td>
+                      </tr>
+                      <tr data-index="5" style="cursor: pointer;">
+                        <td>+10h</td>
+                        <td><strong>06:00</strong></td>
+                        <td>33</td>
+                        <td>Dawn / Illumination restoration (Lights On)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Hypothesis & Submission -->
+            <div class="lab-analysis-col">
+              <div class="analysis-card paper-sheet">
+                <h2 class="analysis-heading font-serif">Environmental Synchrony Deduction</h2>
+                <p class="analysis-prompt">
+                  Cross-examine the quantum chronometer activity curve against the facility lighting telemetry to deduce the circadian synchrony regime.
+                </p>
+
+                <div class="protocol-matrix-box paper-sheet-torn font-mono" style="padding: 0.85rem; background: rgba(24, 61, 50, 0.05); margin-bottom: 1.25rem; font-size: 0.82rem; border-left: 3px solid var(--forest-accent);">
+                  <div style="font-weight: bold; margin-bottom: 0.35rem; color: var(--forest-deep);">VOSS CHRONOBIOLOGY PROTOCOL MATRIX:</div>
+                  <div>• Acrophase aligned with diurnal lighting (06:00 - 20:00): <code>DAYLIGHT</code></div>
+                  <div>• Acrophase aligned with scotoperiodic darkness (20:00 - 06:00): <code>DARK-CYCLE</code></div>
+                  <div>• Acrophase driven by thermal HVAC cycling: <code>TEMPERATURE-CYCLE</code></div>
+                </div>
+
+                <form id="labPatternForm">
+                  <div class="form-group" style="margin-bottom: 1rem;">
+                    <label for="patternInput" class="font-mono form-label">SYNCHRONIZATION PROTOCOL TOKEN:</label>
+                    <input id="patternInput" type="text" placeholder="ENTER PROTOCOL TOKEN" class="form-input" autocomplete="off" />
+                  </div>
+
+                  <div id="labFeedback" style="display: none;" class="feedback-alert font-mono"></div>
+
+                  <div id="completedLabView" style="display: none;" class="success-recovery-card font-mono">
+                    <div class="recovery-lead">
+                      <strong>✓ OBSERVATION VERIFIED</strong>
+                    </div>
+                    <p>Peak Chrono-Vector: <strong>91 units at 02:00</strong></p>
+                    <p>Verified Synchrony Regime: <strong>DARK-CYCLE</strong></p>
+                    <a href="growth-chart.html" class="btn btn-primary btn-block">Proceed to Module 03: Growth Analysis →</a>
+                  </div>
+
+                  <button id="submitPatternBtn" type="submit" class="btn btn-primary btn-block">
+                    Verify Environmental Protocol
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Progress Bar -->
+    <footer class="facility-progress-bar" role="contentinfo">
+      <div class="progress-container">
+        <div class="progress-summary-col">
+          <div class="progress-label">
+            <span id="progressPercent" class="progress-percent">0%</span>
+            <span id="progressDesc" class="progress-desc">RECONSTRUCTED (0/4)</span>
+          </div>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+        <div class="progress-steps-col">
+          <a href="specimens.html" id="stepBadge1" class="step-badge-btn" title="Module 01">
+            <div class="step-num">01</div>
+            <div class="step-meta">
+              <span class="step-title">Specimen</span>
+              <span id="stepToken1" class="step-token font-mono">---</span>
+            </div>
+          </a>
+          <a href="lab-notes.html" id="stepBadge2" class="step-badge-btn step-current" title="Module 02">
+            <div class="step-num">02</div>
+            <div class="step-meta">
+              <span class="step-title">Lab Notes</span>
+              <span id="stepToken2" class="step-token font-mono">---</span>
+            </div>
+          </a>
+          <a href="growth-chart.html" id="stepBadge3" class="step-badge-btn" title="Module 03">
+            <div class="step-num">03</div>
+            <div class="step-meta">
+              <span class="step-title">Growth Slot</span>
+              <span id="stepToken3" class="step-token font-mono">---</span>
+            </div>
+          </a>
+          <a href="field-report.html" id="stepBadge4" class="step-badge-btn" title="Module 04">
+            <div class="step-num">04</div>
+            <div class="step-meta">
+              <span class="step-title">Field Report</span>
+              <span id="stepToken4" class="step-token font-mono">---</span>
+            </div>
+          </a>
+        </div>
+        <div class="progress-action-col">
+          <button id="bottomEvidenceBtn" class="btn btn-secondary btn-sm">🏆 Evidence Dossier</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Evidence Modal -->
+  <div id="evidenceModal" class="modal-backdrop">
+    <div class="modal-container evidence-modal">
+      <div class="modal-header">
+        <h3 class="font-serif">RESEARCH DOSSIER & EVIDENCE</h3>
+        <button class="btn-icon modal-close-trigger">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="evidence-list">
+          <div id="evItem1" class="evidence-card evidence-locked">
+            <div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 01</span><span id="evItem1Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div>
+            <div id="evItem1Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+          <div id="evItem2" class="evidence-card evidence-locked">
+            <div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 02</span><span id="evItem2Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div>
+            <div id="evItem2Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+          <div id="evItem3" class="evidence-card evidence-locked">
+            <div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 03</span><span id="evItem3Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div>
+            <div id="evItem3Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+          <div id="evItem4" class="evidence-card evidence-locked">
+            <div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 04</span><span id="evItem4Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span></div>
+            <div id="evItem4Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary modal-close-trigger">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Activity Log Modal -->
+  <div id="logModal" class="modal-backdrop">
+    <div class="modal-container log-modal">
+      <div class="modal-header"><h3 class="font-serif">FACILITY ACTIVITY LOG</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body log-modal-body font-mono"><div id="logEntriesList" class="log-entries-list"></div></div>
+      <div class="modal-footer"><span id="logBufferSize" class="font-mono text-muted">0 events</span><button class="btn btn-secondary modal-close-trigger">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Reset Modal -->
+  <div id="resetModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header"><h3 class="font-serif text-warning">Reset Research Archive?</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body"><p>Are you sure you want to clear your current progress and reset all four research modules back to unrecovered state?</p></div>
+      <div class="modal-footer"><button class="btn btn-secondary modal-close-trigger">Cancel</button><button id="confirmResetBtn" class="btn btn-danger">Confirm Reset</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const state = Verdant.getState();
+      const dataset = [
+        { h: 0, time: "20:00", act: 12, env: "Dark cycle begins (Lights Out)" },
+        { h: 2, time: "22:00", act: 28, env: "Full Darkness (Chamber Sealed)" },
+        { h: 4, time: "00:00", act: 64, env: "Deep Midnight (Photodetector array engaged)" },
+        { h: 6, time: "02:00", act: 91, env: "Deep Darkness (Peak biological luminescence registered)" },
+        { h: 8, time: "04:00", act: 74, env: "Late Darkness (Phosphor decay slope)" },
+        { h: 10, time: "06:00", act: 33, env: "Dawn / Illumination restoration (Lights On)" }
+      ];
+
+      if (state.completed.m2) {
+        document.getElementById('moduleHeaderStamp').className = 'archive-stamp stamp-recovered font-mono';
+        document.getElementById('moduleHeaderStamp').textContent = '✓ PATTERN RECOVERED: DARK-CYCLE';
+        document.getElementById('completedLabView').style.display = 'flex';
+        document.getElementById('submitPatternBtn').style.display = 'none';
+      }
+
+      // Remove hints UI call - hints disabled
+      selectDataPoint(0);
+
+      function selectDataPoint(idx) {
+        const item = dataset[idx];
+        if (!item) return;
+
+        document.getElementById('inspectHours').textContent = `+${item.h} Hours`;
+        document.getElementById('inspectClock').textContent = item.time;
+        document.getElementById('inspectActivity').textContent = `${item.act} units`;
+        document.getElementById('inspectEnv').textContent = item.env;
+
+        // Highlight SVG node
+        document.querySelectorAll('.chart-point').forEach((pt, i) => {
+          if (i === idx) pt.classList.add('point-selected');
+          else pt.classList.remove('point-selected');
+        });
+
+        // Highlight table row
+        document.querySelectorAll('#labTableBody tr').forEach((tr, i) => {
+          if (i === idx) tr.classList.add('table-row-selected');
+          else tr.classList.remove('table-row-selected');
+        });
+      }
+
+      // Add click listeners to SVG points and table rows
+      document.querySelectorAll('.chart-point').forEach((pt, i) => {
+        pt.addEventListener('click', () => selectDataPoint(i));
+      });
+      document.querySelectorAll('#labTableBody tr').forEach((tr, i) => {
+        tr.addEventListener('click', () => selectDataPoint(i));
+      });
+
+      // Submit Form
+      document.getElementById('labPatternForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('patternInput');
+        const token = input ? input.value.trim().toUpperCase() : '';
+        const feedback = document.getElementById('labFeedback');
+
+        if (!token) {
+          feedback.className = 'feedback-alert feedback-error font-mono';
+          feedback.textContent = 'Please enter an environmental synchrony protocol token before submitting.';
+          feedback.style.display = 'block';
+          return;
+        }
+
+        if (token === 'DARK-CYCLE') {
+          Verdant.unlockModule('m2', 'activityPattern', 'DARK-CYCLE', 'OBSERVATION VERIFIED: Specimen V-09 peak activity (91 units at 02:00) occurs during DARK-CYCLE.');
+          feedback.className = 'feedback-alert feedback-success font-mono';
+          feedback.textContent = '✓ SYNCHRONIZATION VERIFIED — Acrophase of 91 units is locked at 02:00 (+6h into darkness), aligning strictly with DARK-CYCLE.';
+          feedback.style.display = 'block';
+
+          document.getElementById('moduleHeaderStamp').className = 'archive-stamp stamp-recovered font-mono';
+          document.getElementById('moduleHeaderStamp').textContent = '✓ PATTERN RECOVERED: DARK-CYCLE';
+
+          document.getElementById('completedLabView').style.display = 'flex';
+          document.getElementById('submitPatternBtn').style.display = 'none';
+        } else {
+          Verdant.addLog(`Incorrect pattern submission: ${token}.`, 'error', 'ERR-ANALYSIS');
+          feedback.className = 'feedback-alert feedback-error font-mono';
+          if (token === 'DAYLIGHT') {
+            feedback.textContent = 'PROTOCOL REJECTED: DAYLIGHT occurs between 06:00 and 20:00. Peak luminescence was recorded at 02:00.';
+          } else if (token === 'TEMPERATURE-CYCLE') {
+            feedback.textContent = 'PROTOCOL REJECTED: Telemetry logs indicate thermal HVAC remained constant ±0.5°C; photon emission is photoperiod-dependent.';
+          } else {
+            feedback.textContent = `PROTOCOL REJECTED: "${token}" is not a recognized chronobiological protocol token in the Voss matrix.`;
+          }
+          feedback.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

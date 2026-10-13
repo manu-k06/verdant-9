@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 01: Specimen Catalogue — VERDANT-9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="verdant-shell">
+    <!-- Facility TopBar -->
+    <header class="facility-topbar" role="banner">
+      <div class="topbar-left">
+        <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+        <a href="index.html" class="facility-brand">
+          <div class="brand-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">VERDANT-9</div>
+            <div class="brand-sub">BOTANICAL RESEARCH FACILITY</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="topbar-center">
+        <div class="status-pill status-archive">
+          <span class="status-dot pulsing"></span>
+          <span class="status-label">ARCHIVE STATUS:</span>
+          <span id="archiveStatusVal" class="status-val">PARTIALLY RECOVERED</span>
+        </div>
+        <div class="status-pill hidden-mobile">
+          <span class="status-label">MODULE:</span>
+          <span class="status-val">01 // CATALOGUE</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button id="topbarEvidenceBtn" class="btn-toolbar" title="View Evidence Dossier">
+          🏆 <span class="toolbar-btn-text">Evidence</span>
+          <span id="evidenceCounter" class="evidence-counter">0/4</span>
+        </button>
+        <button id="topbarLogBtn" class="btn-toolbar" title="View Activity Log">
+          📟 <span class="toolbar-btn-text">Log</span>
+        </button>
+        <button id="topbarResetBtn" class="btn-toolbar btn-toolbar-danger" title="Reset Progress">
+          ↺ <span class="toolbar-btn-text">Reset</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="facility-body-grid">
+      <!-- Sidebar -->
+      <aside id="researchSidebar" class="research-sidebar" aria-label="Research Modules">
+        <div class="sidebar-header">
+          <div class="sidebar-section-title">RESEARCH MODULES</div>
+          <div class="sidebar-subtext">Classified Dossier 2049-N9</div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-link">
+            <div class="link-icon-col">📄</div>
+            <div class="link-text-col">
+              <div class="link-title">Facility Briefing</div>
+              <div class="link-subtitle">Archive Overview & Memos</div>
+            </div>
+          </a>
+
+          <a href="specimens.html" class="sidebar-link active">
+            <div class="link-icon-col">🌿</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 01: Catalogue</div>
+              <div class="link-subtitle">Specimen Screening</div>
+              <div id="sidePill1" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="lab-notes.html" class="sidebar-link">
+            <div class="link-icon-col">🧪</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 02: Lab Notes</div>
+              <div class="link-subtitle">Chronobiology Data</div>
+              <div id="sidePill2" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="growth-chart.html" class="sidebar-link">
+            <div class="link-icon-col">📈</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 03: Growth Analysis</div>
+              <div class="link-subtitle">Cycle Synchronization</div>
+              <div id="sidePill3" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="field-report.html" class="sidebar-link">
+            <div class="link-icon-col">📋</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 04: Field Report</div>
+              <div class="link-subtitle">Final Synthesis</div>
+              <div id="sidePill4" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="completion.html" class="sidebar-link">
+            <div class="link-icon-col">✨</div>
+            <div class="link-text-col">
+              <div class="link-title">Conclusion: Nightbloom</div>
+              <div class="link-subtitle">Experiment Discovery</div>
+            </div>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Page Content -->
+      <main class="facility-main-content">
+        <div class="module-page-container">
+          <!-- Header Banner -->
+          <section class="module-header-banner paper-sheet">
+            <div class="banner-top-row">
+              <div class="module-badge font-mono">MODULE 01 // TAXONOMY & CATALOGUE</div>
+              <span id="moduleHeaderStamp" class="archive-stamp stamp-active font-mono">🔒 INVESTIGATION IN PROGRESS</span>
+            </div>
+
+            <h1 class="module-page-title">Specimen Catalogue Screening</h1>
+            <p class="module-page-desc">
+              Compare the surviving specimen records against Dr. Voss’s recovered protocol. Filter out non-matching candidates to isolate the true subject of Project NIGHTBLOOM.
+            </p>
+
+            <!-- Voss Screening Memo -->
+            <div class="voss-memo-card paper-sheet-torn">
+              <div class="voss-memo-header">
+                <span class="font-mono">Dr. Elara Voss, Lead Phytologist</span>
+                <span class="font-mono">17 October 2049</span>
+              </div>
+              <div class="voss-memo-text">
+                “SCREENING DIRECTIVE // PROJECT NIGHTBLOOM: Exclude the specimen whose strongest response occurs at midday (solar zenith index χ ≥ 0.85). Exclude the one that responds to warmth with an orange emission (thermoluminescent band λ ≈ 625 nm). The target produces a blue-green signal during darkness (scotoperiodic fluorophore excitation, cyan band λ ≈ 498 nm). Its activity peaks after the dark cycle begins.”
+              </div>
+              <div class="voss-memo-footer font-mono">
+                REF: MEMO-EV-2049-10-17-A — CLASSIFIED RESTRICTED
+              </div>
+            </div>
+          </section>
+
+          <!-- Main Layout Grid -->
+          <div class="catalogue-layout-grid">
+            <!-- Left Cards Grid -->
+            <div class="catalogue-cards-col">
+              <div class="cards-col-header">
+                <h2 class="font-serif">Conservatory Specimen Archive</h2>
+                <span class="specimen-count font-mono">6 SPECIMENS RECORDED</span>
+              </div>
+
+              <div id="specimenCardsGrid" class="specimen-cards-grid">
+                <!-- V-02 Solcrest -->
+                <div class="specimen-card paper-sheet" data-id="V-02" tabindex="0">
+                  <div class="card-top-bar">
+                    <span class="specimen-id-badge font-mono">V-02</span>
+                  </div>
+                  <div class="specimen-card-visual">
+                    <svg width="120" height="120" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="92" fill="#FAF6EE" stroke="#E3DAC7" stroke-width="2" stroke-dasharray="4 3"/>
+                      <path d="M100 185 Q98 135 100 95" stroke="#547C59" stroke-width="4.5" stroke-linecap="round"/>
+                      <g transform="translate(100, 75)">
+                        <circle cx="0" cy="0" r="14" fill="#8C5C26" stroke="#D4AF37" stroke-width="2"/>
+                        <circle cx="0" cy="0" r="28" fill="none" stroke="#D4AF37" stroke-width="3" stroke-dasharray="5 5"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="specimen-card-info">
+                    <h3 class="specimen-name font-serif">Solcrest</h3>
+                    <div class="specimen-binomial font-serif">Helianthus radialis</div>
+                    <p class="specimen-characteristic-snippet">Diurnal heliotropic leaves; peak metabolic flux at midday solar zenith.</p>
+                  </div>
+                  <div class="card-select-footer">
+                    <span class="select-label font-mono text-muted">○ CLICK TO INSPECT</span>
+                  </div>
+                </div>
+
+                <!-- V-04 Duskmoss -->
+                <div class="specimen-card paper-sheet" data-id="V-04" tabindex="0">
+                  <div class="card-top-bar">
+                    <span class="specimen-id-badge font-mono">V-04</span>
+                  </div>
+                  <div class="specimen-card-visual">
+                    <svg width="120" height="120" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="92" fill="#F4F1EA" stroke="#DBD4C4" stroke-width="2" stroke-dasharray="4 3"/>
+                      <path d="M40 160 C55 140 145 140 160 160 C150 175 50 175 40 160Z" fill="#4A453E"/>
+                      <path d="M45 152 C50 120 75 110 90 125 C105 105 130 115 145 135 Z" fill="#2D4A3E"/>
+                    </svg>
+                  </div>
+                  <div class="specimen-card-info">
+                    <h3 class="specimen-name font-serif">Duskmoss</h3>
+                    <div class="specimen-binomial font-serif">Bryum crepusculum</div>
+                    <p class="specimen-characteristic-snippet">Sciophytic understory bryophyte; zero detectable fluorophore emission across all wavelengths.</p>
+                  </div>
+                  <div class="card-select-footer">
+                    <span class="select-label font-mono text-muted">○ CLICK TO INSPECT</span>
+                  </div>
+                </div>
+
+                <!-- V-06 Glassfern -->
+                <div class="specimen-card paper-sheet" data-id="V-06" tabindex="0">
+                  <div class="card-top-bar">
+                    <span class="specimen-id-badge font-mono">V-06</span>
+                  </div>
+                  <div class="specimen-card-visual">
+                    <svg width="120" height="120" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="92" fill="#F7FAF8" stroke="#D3E0D8" stroke-width="2" stroke-dasharray="4 3"/>
+                      <path d="M100 185 Q92 120 102 45" stroke="#7BA896" stroke-width="2.5"/>
+                      <path d="M98 85 C80 73 56 81 56 89 C80 99 98 90 98 85Z" fill="rgba(195, 230, 218, 0.45)" stroke="#68A08C" stroke-width="1.2"/>
+                      <path d="M102 85 C120 73 144 81 144 89 C120 99 102 90 102 85Z" fill="rgba(195, 230, 218, 0.45)" stroke="#68A08C" stroke-width="1.2"/>
+                    </svg>
+                  </div>
+                  <div class="specimen-card-info">
+                    <h3 class="specimen-name font-serif">Glassfern</h3>
+                    <div class="specimen-binomial font-serif">Pteris vitrea</div>
+                    <p class="specimen-characteristic-snippet">Siliceous translucent foliage; maximum optical refraction focused at solar noon.</p>
+                  </div>
+                  <div class="card-select-footer">
+                    <span class="select-label font-mono text-muted">○ CLICK TO INSPECT</span>
+                  </div>
+                </div>
+
+                <!-- V-07 Embervine -->
+                <div class="specimen-card paper-sheet" data-id="V-07" tabindex="0">
+                  <div class="card-top-bar">
+                    <span class="specimen-id-badge font-mono">V-07</span>
+                  </div>
+                  <div class="specimen-card-visual">
+                    <svg width="120" height="120" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="92" fill="#FAF4EE" stroke="#E6D3C3" stroke-width="2" stroke-dasharray="4 3"/>
+                      <path d="M75 185 C65 140 135 125 120 90 C108 60 70 65 80 40" stroke="#5E4334" stroke-width="3" fill="none"/>
+                      <circle cx="122" cy="92" r="9" fill="#E86B30" stroke="#B84414" stroke-width="1.5"/>
+                      <circle cx="85" cy="55" r="7" fill="#E86B30" stroke="#B84414" stroke-width="1.5"/>
+                    </svg>
+                  </div>
+                  <div class="specimen-card-info">
+                    <h3 class="specimen-name font-serif">Embervine</h3>
+                    <div class="specimen-binomial font-serif">Parthenocissus pyrocarpa</div>
+                    <p class="specimen-characteristic-snippet">Thermoluminescent glands; discharges 625nm amber emission strictly under elevated thermal heat.</p>
+                  </div>
+                  <div class="card-select-footer">
+                    <span class="select-label font-mono text-muted">○ CLICK TO INSPECT</span>
+                  </div>
+                </div>
+
+                <!-- V-09 Nightbloom (TARGET) -->
+                <div class="specimen-card paper-sheet" data-id="V-09" tabindex="0">
+                  <div class="card-top-bar">
+                    <span class="specimen-id-badge font-mono">V-09</span>
+                  </div>
+                  <div class="specimen-card-visual">
+                    <svg width="120" height="120" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="92" fill="#F4FAF8" stroke="#B8E0D7" stroke-width="2" stroke-dasharray="4 3"/>
+                      <path d="M100 185 Q94 135 100 95" stroke="#183D32" stroke-width="4.5"/>
+                      <g transform="translate(100, 85)">
+                        <circle cx="0" cy="0" r="32" fill="rgba(114, 217, 197, 0.45)"/>
+                        <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5"/>
+                        <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(72)"/>
+                        <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(144)"/>
+                        <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(216)"/>
+                        <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(288)"/>
+                        <circle cx="0" cy="0" r="8" fill="#183D32" stroke="#72D9C5" stroke-width="2"/>
+                        <circle cx="0" cy="0" r="4" fill="#72D9C5"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="specimen-card-info">
+                    <h3 class="specimen-name font-serif">Nightbloom</h3>
+                    <div class="specimen-binomial font-serif">Nyctanthus cyaneus</div>
+                    <p class="specimen-characteristic-snippet">Scotoperiodic angiosperm; synthesizes 498nm cyan-teal bioluminescence exclusively under ambient darkness.</p>
+                  </div>
+                  <div class="card-select-footer">
+                    <span class="select-label font-mono text-muted">○ CLICK TO INSPECT</span>
+                  </div>
+                </div>
+
+                <!-- V-11 Frostroot -->
+                <div class="specimen-card paper-sheet" data-id="V-11" tabindex="0">
+                  <div class="card-top-bar">
+                    <span class="specimen-id-badge font-mono">V-11</span>
+                  </div>
+                  <div class="specimen-card-visual">
+                    <svg width="120" height="120" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="92" fill="#F4F7F8" stroke="#D1DEE3" stroke-width="2" stroke-dasharray="4 3"/>
+                      <line x1="45" y1="75" x2="155" y2="75" stroke="#9BB2BC" stroke-width="2" stroke-dasharray="5 3"/>
+                      <path d="M100 75 Q96 115 102 165" stroke="#8CAAB5" stroke-width="3"/>
+                      <path d="M98 100 Q78 120 70 148" stroke="#D3E2E6" stroke-width="2.5"/>
+                    </svg>
+                  </div>
+                  <div class="specimen-card-info">
+                    <h3 class="specimen-name font-serif">Frostroot</h3>
+                    <div class="specimen-binomial font-serif">Cryorhiza nivalis</div>
+                    <p class="specimen-characteristic-snippet">Cryophilic alpine rhizome; vascular fluid solidifies below 6°C; zero optical discharge.</p>
+                  </div>
+                  <div class="card-select-footer">
+                    <span class="select-label font-mono text-muted">○ CLICK TO INSPECT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Profile & Submission Column -->
+            <div class="catalogue-profile-col">
+              <div id="specimenProfileCard" class="specimen-profile-card paper-sheet">
+                <!-- Injected via JavaScript upon card click -->
+                <div id="emptyProfileView" class="empty-profile-placeholder">
+                  <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔍</div>
+                  <h3 class="font-serif">No Specimen Selected</h3>
+                  <p>Select any specimen record from the conservatory catalogue to examine its biological telemetry, photoperiod, and spectrometry metrics.</p>
+                </div>
+
+                <div id="activeProfileView" style="display: none;">
+                  <div class="profile-header-band">
+                    <div>
+                      <div id="profileTag" class="profile-tag font-mono">SPECIMEN DOSSIER</div>
+                      <h2 id="profileName" class="profile-title font-serif">Solcrest</h2>
+                      <div id="profileBinomial" class="profile-binomial font-serif">Helianthus radialis</div>
+                    </div>
+                  </div>
+
+                  <div class="profile-specs-table font-mono">
+                    <div class="spec-row">
+                      <span class="spec-label">Habitat:</span>
+                      <span id="profileHabitat" class="spec-value">Conservatory Alpha</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Photoperiod:</span>
+                      <span id="profilePhotoperiod" class="spec-value">Diurnal</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Temp Range:</span>
+                      <span id="profileTemp" class="spec-value">24°C - 32°C</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Emission λ:</span>
+                      <span id="profileEmission" class="spec-value">0 nm (Non-emitting)</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Zenith / Trigger:</span>
+                      <span id="profilePeak" class="spec-value">Solar Zenith 1.00</span>
+                    </div>
+                  </div>
+
+                  <div class="profile-notes-section">
+                    <h4 class="notes-heading font-mono">RECORDED CHARACTERISTICS & FIELD OBSERVATION</h4>
+                    <p id="profileCharacteristics" class="notes-text"></p>
+                    <p id="profileFieldNotes" class="notes-detailed"></p>
+                  </div>
+
+                  <form id="specimenForm" class="profile-submission-box">
+                    <div class="submission-prompt font-mono">
+                      VERIFY SELECTED SPECIMEN AS PROJECT NIGHTBLOOM SUBJECT?
+                    </div>
+
+                    <div id="submissionFeedback" style="display: none;" class="feedback-alert font-mono"></div>
+
+                    <div id="completedModuleView" style="display: none;" class="success-recovery-card font-mono">
+                      <div class="recovery-lead">
+                        <strong>✓ SPECIMEN IDENTIFIED</strong>
+                      </div>
+                      <p>Specimen ID <strong>V-09</strong> is registered to your research evidence dossier.</p>
+                      <a href="lab-notes.html" class="btn btn-primary btn-block">Proceed to Module 02: Lab Notes →</a>
+                    </div>
+
+                    <button id="submitSpecimenBtn" type="submit" class="btn btn-primary btn-block">
+                      Confirm Identification as Target Specimen
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Progress Bar -->
+    <footer class="facility-progress-bar" role="contentinfo">
+      <div class="progress-container">
+        <div class="progress-summary-col">
+          <div class="progress-label">
+            <span id="progressPercent" class="progress-percent">0%</span>
+            <span id="progressDesc" class="progress-desc">RECONSTRUCTED (0/4)</span>
+          </div>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+        <div class="progress-steps-col">
+          <a href="specimens.html" id="stepBadge1" class="step-badge-btn step-current" title="Module 01">
+            <div class="step-num">01</div>
+            <div class="step-meta">
+              <span class="step-title">Specimen</span>
+              <span id="stepToken1" class="step-token font-mono">---</span>
+            </div>
+          </a>
+          <a href="lab-notes.html" id="stepBadge2" class="step-badge-btn" title="Module 02">
+            <div class="step-num">02</div>
+            <div class="step-meta">
+              <span class="step-title">Lab Notes</span>
+              <span id="stepToken2" class="step-token font-mono">---</span>
+            </div>
+          </a>
+          <a href="growth-chart.html" id="stepBadge3" class="step-badge-btn" title="Module 03">
+            <div class="step-num">03</div>
+            <div class="step-meta">
+              <span class="step-title">Growth Slot</span>
+              <span id="stepToken3" class="step-token font-mono">---</span>
+            </div>
+          </a>
+          <a href="field-report.html" id="stepBadge4" class="step-badge-btn" title="Module 04">
+            <div class="step-num">04</div>
+            <div class="step-meta">
+              <span class="step-title">Field Report</span>
+              <span id="stepToken4" class="step-token font-mono">---</span>
+            </div>
+          </a>
+        </div>
+        <div class="progress-action-col">
+          <button id="bottomEvidenceBtn" class="btn btn-secondary btn-sm">🏆 Evidence Dossier</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Evidence Modal -->
+  <div id="evidenceModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container evidence-modal">
+      <div class="modal-header">
+        <h3 class="font-serif">RESEARCH DOSSIER & EVIDENCE</h3>
+        <button class="btn-icon modal-close-trigger">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="evidence-list">
+          <div id="evItem1" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 01 — Module 01: Catalogue</span>
+              <span id="evItem1Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem1Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+          <div id="evItem2" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 02 — Module 02: Lab Notes</span>
+              <span id="evItem2Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem2Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+          <div id="evItem3" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 03 — Module 03: Growth Analysis</span>
+              <span id="evItem3Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem3Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+          <div id="evItem4" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 04 — Module 04: Field Report</span>
+              <span id="evItem4Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem4Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary modal-close-trigger">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity Log Modal -->
+  <div id="logModal" class="modal-backdrop">
+    <div class="modal-container log-modal">
+      <div class="modal-header">
+        <h3 class="font-serif">FACILITY ACTIVITY LOG</h3>
+        <button class="btn-icon modal-close-trigger">✕</button>
+      </div>
+      <div class="modal-body log-modal-body font-mono">
+        <div id="logEntriesList" class="log-entries-list"></div>
+      </div>
+      <div class="modal-footer">
+        <span id="logBufferSize" class="font-mono text-muted">0 events</span>
+        <button class="btn btn-secondary modal-close-trigger">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reset Modal -->
+  <div id="resetModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="font-serif text-warning">Reset Research Archive?</h3>
+        <button class="btn-icon modal-close-trigger">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to clear your current progress and reset all four research modules back to unrecovered state?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary modal-close-trigger">Cancel</button>
+        <button id="confirmResetBtn" class="btn btn-danger">Confirm Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let activeSpecimen = null;
+      const state = Verdant.getState();
+
+      // Check if module is already complete
+      if (state.completed.m1) {
+        document.getElementById('moduleHeaderStamp').className = 'archive-stamp stamp-recovered font-mono';
+        document.getElementById('moduleHeaderStamp').textContent = '✓ SPECIMEN IDENTIFIED (V-09)';
+      }
+
+      function selectCard(id) {
+        const found = SPECIMENS_DATA.find(s => s.id === id);
+        if (!found) return;
+
+        activeSpecimen = found;
+        state.selectedSpecimen = id;
+        Verdant.saveState(state);
+        Verdant.addLog(`Specimen record ${id} (${found.name}) selected for inspection.`, 'info', 'CAT-SELECT');
+
+        // Highlight cards
+        document.querySelectorAll('.specimen-card').forEach(card => {
+          if (card.dataset.id === id) {
+            card.classList.add('selected-card');
+            card.querySelector('.select-label').textContent = '● INSPECTING PROFILE';
+            card.querySelector('.select-label').className = 'select-label font-mono text-primary';
+          } else {
+            card.classList.remove('selected-card');
+            card.querySelector('.select-label').textContent = '○ CLICK TO INSPECT';
+            card.querySelector('.select-label').className = 'select-label font-mono text-muted';
+          }
+        });
+
+        // Show profile view
+        document.getElementById('emptyProfileView').style.display = 'none';
+        document.getElementById('activeProfileView').style.display = 'block';
+
+        document.getElementById('profileTag').textContent = `SPECIMEN DOSSIER // ${found.id}`;
+        document.getElementById('profileName').textContent = found.name;
+        document.getElementById('profileBinomial').textContent = found.binomialName;
+        document.getElementById('profileHabitat').textContent = found.habitat;
+        document.getElementById('profilePhotoperiod').textContent = found.photoperiod;
+        document.getElementById('profileTemp').textContent = found.temperatureRange;
+        document.getElementById('profileEmission').textContent = found.emissionSpectrum;
+        document.getElementById('profilePeak').textContent = found.activationLux || (found.solarZenithIndex ? `Zenith Index ${found.solarZenithIndex}` : 'Aperiodic');
+        document.getElementById('profileCharacteristics').textContent = found.characteristics;
+        document.getElementById('profileFieldNotes').textContent = found.fieldNotes;
+
+        // Feedback alert reset
+        const feedback = document.getElementById('submissionFeedback');
+        feedback.style.display = 'none';
+
+        // Check if already completed
+        const currentState = Verdant.getState();
+        if (currentState.completed.m1 && found.isTarget) {
+          document.getElementById('completedModuleView').style.display = 'flex';
+          document.getElementById('submitSpecimenBtn').style.display = 'none';
+        } else {
+          document.getElementById('completedModuleView').style.display = 'none';
+          document.getElementById('submitSpecimenBtn').style.display = 'block';
+        }
+      }
+
+      // Add click listeners to cards
+      document.querySelectorAll('.specimen-card').forEach(card => {
+        card.addEventListener('click', () => selectCard(card.dataset.id));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') selectCard(card.dataset.id);
+        });
+      });
+
+      // Submit identification form
+      document.getElementById('specimenForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const feedback = document.getElementById('submissionFeedback');
+        if (!activeSpecimen) {
+          feedback.className = 'feedback-alert feedback-error font-mono';
+          feedback.textContent = 'Please select a specimen card before submitting.';
+          feedback.style.display = 'block';
+          return;
+        }
+
+        if (activeSpecimen.isTarget) {
+          Verdant.unlockModule('m1', 'specimenId', 'V-09', 'SPECIMEN IDENTIFIED: Specimen V-09 confirmed as Project NIGHTBLOOM subject.');
+          feedback.className = 'feedback-alert feedback-success font-mono';
+          feedback.textContent = '✓ SPECIMEN IDENTIFIED — Specimen V-09 matches all criteria from Dr. Voss\'s screening protocol.';
+          feedback.style.display = 'block';
+
+          document.getElementById('moduleHeaderStamp').className = 'archive-stamp stamp-recovered font-mono';
+          document.getElementById('moduleHeaderStamp').textContent = '✓ SPECIMEN IDENTIFIED (V-09)';
+
+          document.getElementById('completedModuleView').style.display = 'flex';
+          document.getElementById('submitSpecimenBtn').style.display = 'none';
+        } else {
+          Verdant.addLog(`Failed identification attempt on ${activeSpecimen.id} (${activeSpecimen.name}).`, 'error', 'ERR-VERIFY');
+          feedback.className = 'feedback-alert feedback-error font-mono';
+          feedback.textContent = `IDENTIFICATION REJECTED: ${activeSpecimen.name} (${activeSpecimen.id}) does not meet the target criteria. ${activeSpecimen.exclusionReason || 'Re-evaluate the screening memo.'}`;
+          feedback.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

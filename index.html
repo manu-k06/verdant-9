@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VERDANT-9 — The Last Experiment | Research Archive</title>
+  <meta name="description" content="Explore the abandoned botanical research archive of VERDANT-9. Reconstruct Dr. Elara Voss's final experiment on Project NIGHTBLOOM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="verdant-shell">
+    <!-- Facility TopBar -->
+    <header class="facility-topbar" role="banner">
+      <div class="topbar-left">
+        <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+        <a href="index.html" class="facility-brand">
+          <div class="brand-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">VERDANT-9</div>
+            <div class="brand-sub">BOTANICAL RESEARCH FACILITY</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="topbar-center">
+        <div class="status-pill status-archive">
+          <span class="status-dot pulsing"></span>
+          <span class="status-label">ARCHIVE STATUS:</span>
+          <span id="archiveStatusVal" class="status-val">PARTIALLY RECOVERED</span>
+        </div>
+        <div class="status-pill hidden-mobile">
+          <span class="status-label">CHAMBER:</span>
+          <span class="status-val">SECTOR 04 (SEALED)</span>
+        </div>
+        <div class="status-pill hidden-mobile">
+          <span class="status-label">CYCLE:</span>
+          <span class="status-val">2049.10.17</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button id="topbarEvidenceBtn" class="btn-toolbar" title="View Evidence Dossier">
+          🏆 <span class="toolbar-btn-text">Evidence</span>
+          <span id="evidenceCounter" class="evidence-counter">0/4</span>
+        </button>
+        <button id="topbarLogBtn" class="btn-toolbar" title="View Activity Log">
+          📟 <span class="toolbar-btn-text">Log</span>
+        </button>
+        <button id="topbarResetBtn" class="btn-toolbar btn-toolbar-danger" title="Reset Progress">
+          ↺ <span class="toolbar-btn-text">Reset</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="facility-body-grid">
+      <!-- Left Research Sidebar -->
+      <aside id="researchSidebar" class="research-sidebar" aria-label="Research Modules">
+        <div class="sidebar-header">
+          <div class="sidebar-section-title">RESEARCH MODULES</div>
+          <div class="sidebar-subtext">Classified Dossier 2049-N9</div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-link active">
+            <div class="link-icon-col">📄</div>
+            <div class="link-text-col">
+              <div class="link-title">Facility Briefing</div>
+              <div class="link-subtitle">Archive Overview & Memos</div>
+            </div>
+          </a>
+
+          <a href="specimens.html" class="sidebar-link">
+            <div class="link-icon-col">🌿</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 01: Catalogue</div>
+              <div class="link-subtitle">Specimen Screening</div>
+              <div id="sidePill1" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="lab-notes.html" class="sidebar-link">
+            <div class="link-icon-col">🧪</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 02: Lab Notes</div>
+              <div class="link-subtitle">Chronobiology Data</div>
+              <div id="sidePill2" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="growth-chart.html" class="sidebar-link">
+            <div class="link-icon-col">📈</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 03: Growth Analysis</div>
+              <div class="link-subtitle">Cycle Synchronization</div>
+              <div id="sidePill3" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="field-report.html" class="sidebar-link">
+            <div class="link-icon-col">📋</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 04: Field Report</div>
+              <div class="link-subtitle">Final Synthesis</div>
+              <div id="sidePill4" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="completion.html" class="sidebar-link">
+            <div class="link-icon-col">✨</div>
+            <div class="link-text-col">
+              <div class="link-title">Conclusion: Nightbloom</div>
+              <div class="link-subtitle">Experiment Discovery</div>
+            </div>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="footer-memo">
+            <div class="memo-tag">CHIEF PHYTOLOGIST</div>
+            <div class="memo-quote">“Verify each record against physical parameters before drawing conclusions.”</div>
+            <div class="memo-sign">— Dr. Elara Voss</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Central Document Area -->
+      <main class="facility-main-content">
+        <div class="homepage-container">
+          <!-- Hero Section -->
+          <section class="briefing-hero paper-sheet">
+            <div class="briefing-hero-grid">
+              <div class="briefing-text-col">
+                <div class="facility-archive-badge">
+                  <span class="badge-tag">VERDANT-9 ARCHIVE</span>
+                  <span class="badge-status-dot"></span>
+                  <span class="badge-status-text">OFFLINE LOCAL ACCESS ONLY</span>
+                </div>
+
+                <h1 class="hero-title">The Last Experiment</h1>
+                <p class="hero-subtitle">
+                  Four research records survived the evacuation. One species was never properly identified. Reconstruct the evidence left by Dr. Elara Voss and discover what VERDANT-9 was growing.
+                </p>
+
+                <div class="facility-meta-chips">
+                  <div class="meta-chip">📅 Recorded: 17–19 Oct 2049</div>
+                  <div class="meta-chip">🧭 Sector 04 Vault</div>
+                  <div class="meta-chip">📡 4 Surviving Records</div>
+                </div>
+
+                <div class="hero-actions">
+                  <a href="specimens.html" class="btn btn-primary">Begin Investigation — Module 01 →</a>
+                </div>
+              </div>
+
+              <!-- Dr. Voss Portrait Sketch -->
+              <div class="briefing-portrait-col">
+                <div class="portrait-frame">
+                  <svg width="130" height="130" viewBox="0 0 140 140" fill="none">
+                    <rect width="140" height="140" rx="8" fill="#F3EFE6" stroke="#C9D8C1" stroke-width="2"/>
+                    <circle cx="70" cy="52" r="26" fill="#E9E2D2" stroke="#183D32" stroke-width="2"/>
+                    <path d="M48 50 C46 32 60 22 70 22 C80 22 94 32 92 50 C90 42 82 30 70 30 C58 30 50 42 48 50Z" fill="#3D2E24"/>
+                    <circle cx="63" cy="52" r="2" fill="#183D32"/>
+                    <circle cx="77" cy="52" r="2" fill="#183D32"/>
+                    <rect x="56" y="47" width="13" height="10" rx="2" fill="none" stroke="#B99B60" stroke-width="1.5"/>
+                    <rect x="71" y="47" width="13" height="10" rx="2" fill="none" stroke="#B99B60" stroke-width="1.5"/>
+                    <line x1="69" y1="52" x2="71" y2="52" stroke="#B99B60" stroke-width="1.5"/>
+                    <path d="M35 125 C36 95 52 82 70 82 C88 82 104 95 105 125 Z" fill="#FBFAF5" stroke="#183D32" stroke-width="2"/>
+                    <rect x="78" y="108" width="54" height="18" rx="2" fill="#183D32"/>
+                    <text x="105" y="120" text-anchor="middle" fill="#72D9C5" font-size="7" font-family="monospace" font-weight="bold">DR. E. VOSS</text>
+                  </svg>
+                  <div class="portrait-caption font-mono">
+                    <strong>DR. ELARA VOSS</strong>
+                    <span>Lead Phytologist</span>
+                    <span class="portrait-date">17.10.2049</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Introductory Story Memo -->
+          <section class="research-memo-section paper-sheet">
+            <div class="memo-header-band">
+              <div class="memo-title font-mono">
+                <span>📁 FACILITY TRANSMISSION DISPATCH // DECRYPTED LOG</span>
+              </div>
+              <span class="archive-stamp stamp-active">HISTORICAL ARCHIVE</span>
+            </div>
+
+            <div class="memo-content">
+              <p class="memo-paragraph">
+                “On 17 October 2049, Dr. Elara Voss recorded an unexplained response in specimen V-09. The plant displayed measurable activity during the facility's dark cycle. Before the final observation could be verified, the research archive was fragmented and the greenhouse was sealed.
+              </p>
+              <p class="memo-paragraph highlight-lead">
+                Four records remain.
+              </p>
+              <p class="memo-paragraph">
+                The catalogue identifies the specimens. The laboratory notes document their behaviour. The growth chart records the unusual cycle. The final field report contains the missing conclusion.”
+              </p>
+            </div>
+
+            <div class="memo-signature-bar">
+              <div class="signature-col font-mono">
+                <span class="text-muted">RECONSTRUCTION PROTOCOL:</span>
+                <strong>INVESTIGATE FOUR SURVIVING RECORDS IN ORDER</strong>
+              </div>
+              <span class="archive-stamp stamp-recovered font-mono">AUTHORIZED DOSSIER</span>
+            </div>
+          </section>
+
+          <!-- Four Research Cards -->
+          <section class="modules-grid-section">
+            <div class="section-header-row">
+              <h2 class="section-title">Four Research Modules</h2>
+              <p class="section-sub">Inspect records, decode experimental patterns, and compile the final identification.</p>
+            </div>
+
+            <div class="cards-quad-grid">
+              <!-- Card 1 -->
+              <article class="research-card paper-sheet" id="cardM1">
+                <div class="card-top">
+                  <div class="card-module-id font-mono">MODULE 01</div>
+                  <span id="stampCard1" class="card-status-stamp stamp-pending font-mono">🔒 PENDING</span>
+                </div>
+                <div class="card-illustration-box">
+                  <svg width="105" height="105" viewBox="0 0 200 200" fill="none">
+                    <circle cx="100" cy="100" r="92" fill="#F4FAF8" stroke="#B8E0D7" stroke-width="2" stroke-dasharray="4 3"/>
+                    <path d="M100 185 Q94 135 100 95" stroke="#183D32" stroke-width="4.5"/>
+                    <g transform="translate(100, 85)">
+                      <circle cx="0" cy="0" r="32" fill="rgba(114, 217, 197, 0.35)"/>
+                      <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5"/>
+                      <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(72)"/>
+                      <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(144)"/>
+                      <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(216)"/>
+                      <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(288)"/>
+                      <circle cx="0" cy="0" r="8" fill="#183D32" stroke="#72D9C5" stroke-width="2"/>
+                    </g>
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title font-serif">Specimen Catalogue</h3>
+                  <div class="card-tagline font-mono">Morphological Screening</div>
+                  <p class="card-desc">Six specimens. One description that matches the missing plant.</p>
+                </div>
+                <div class="card-footer">
+                  <div id="cardPill1" class="card-evidence-pill font-mono">NOT RECOVERED</div>
+                  <a href="specimens.html" class="btn btn-primary btn-block">Open Investigation →</a>
+                </div>
+              </article>
+
+              <!-- Card 2 -->
+              <article class="research-card paper-sheet" id="cardM2">
+                <div class="card-top">
+                  <div class="card-module-id font-mono">MODULE 02</div>
+                  <span id="stampCard2" class="card-status-stamp stamp-pending font-mono">🔒 PENDING</span>
+                </div>
+                <div class="card-illustration-box">
+                  <svg width="105" height="105" viewBox="0 0 200 200" fill="none">
+                    <circle cx="100" cy="100" r="92" fill="#F7FAF8" stroke="#D3E0D8" stroke-width="2" stroke-dasharray="4 3"/>
+                    <path d="M100 185 Q92 120 102 45" stroke="#7BA896" stroke-width="2.5"/>
+                    <path d="M98 85 C80 73 56 81 56 89 C80 99 98 90 98 85Z" fill="rgba(195, 230, 218, 0.45)" stroke="#68A08C" stroke-width="1.2"/>
+                    <path d="M102 85 C120 73 144 81 144 89 C120 99 102 90 102 85Z" fill="rgba(195, 230, 218, 0.45)" stroke="#68A08C" stroke-width="1.2"/>
+                    <path d="M98 110 C80 98 50 106 50 114 C80 124 98 115 98 110Z" fill="rgba(195, 230, 218, 0.45)" stroke="#68A08C" stroke-width="1.2"/>
+                    <path d="M102 110 C120 98 150 106 150 114 C120 124 102 115 102 110Z" fill="rgba(195, 230, 218, 0.45)" stroke="#68A08C" stroke-width="1.2"/>
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title font-serif">Laboratory Notes</h3>
+                  <div class="card-tagline font-mono">Chronobiology Measurements</div>
+                  <p class="card-desc">Experimental measurements contain a pattern that should not be possible under the recorded conditions.</p>
+                </div>
+                <div class="card-footer">
+                  <div id="cardPill2" class="card-evidence-pill font-mono">NOT RECOVERED</div>
+                  <a href="lab-notes.html" class="btn btn-primary btn-block">Open Investigation →</a>
+                </div>
+              </article>
+
+              <!-- Card 3 -->
+              <article class="research-card paper-sheet" id="cardM3">
+                <div class="card-top">
+                  <div class="card-module-id font-mono">MODULE 03</div>
+                  <span id="stampCard3" class="card-status-stamp stamp-pending font-mono">🔒 PENDING</span>
+                </div>
+                <div class="card-illustration-box">
+                  <svg width="105" height="105" viewBox="0 0 200 200" fill="none">
+                    <circle cx="100" cy="100" r="92" fill="#FAF6EE" stroke="#E3DAC7" stroke-width="2" stroke-dasharray="4 3"/>
+                    <circle cx="100" cy="100" r="60" fill="none" stroke="#547C59" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <circle cx="100" cy="40" r="8" fill="#72D9C5" stroke="#183D32" stroke-width="2"/>
+                    <circle cx="160" cy="100" r="6" fill="#B99B60"/>
+                    <circle cx="100" cy="160" r="6" fill="#B99B60"/>
+                    <circle cx="40" cy="100" r="6" fill="#B99B60"/>
+                    <path d="M100 100 L100 48" stroke="#183D32" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title font-serif">Growth Analysis</h3>
+                  <div class="card-tagline font-mono">Cycle Synchronization</div>
+                  <p class="card-desc">The plant's activity follows a repeating cycle. Read the data in the correct order.</p>
+                </div>
+                <div class="card-footer">
+                  <div id="cardPill3" class="card-evidence-pill font-mono">NOT RECOVERED</div>
+                  <a href="growth-chart.html" class="btn btn-primary btn-block">Open Investigation →</a>
+                </div>
+              </article>
+
+              <!-- Card 4 -->
+              <article class="research-card paper-sheet" id="cardM4">
+                <div class="card-top">
+                  <div class="card-module-id font-mono">MODULE 04</div>
+                  <span id="stampCard4" class="card-status-stamp stamp-pending font-mono">🔒 PENDING</span>
+                </div>
+                <div class="card-illustration-box">
+                  <svg width="105" height="105" viewBox="0 0 200 200" fill="none">
+                    <circle cx="100" cy="100" r="92" fill="#FAF4EE" stroke="#E6D3C3" stroke-width="2" stroke-dasharray="4 3"/>
+                    <rect x="55" y="45" width="90" height="110" rx="4" fill="#FAF8F2" stroke="#5E4334" stroke-width="2"/>
+                    <line x1="70" y1="65" x2="130" y2="65" stroke="#B99B60" stroke-width="2"/>
+                    <line x1="70" y1="80" x2="130" y2="80" stroke="#7A5642" stroke-width="1.5"/>
+                    <line x1="70" y1="95" x2="120" y2="95" stroke="#7A5642" stroke-width="1.5"/>
+                    <circle cx="120" cy="130" r="14" fill="rgba(114, 217, 197, 0.3)" stroke="#183D32" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title font-serif">Final Field Report</h3>
+                  <div class="card-tagline font-mono">Species Reconciliation</div>
+                  <p class="card-desc">Dr. Voss left one last observation. The final identification depends on everything discovered before it.</p>
+                </div>
+                <div class="card-footer">
+                  <div id="cardPill4" class="card-evidence-pill font-mono">NOT RECOVERED</div>
+                  <a href="field-report.html" class="btn btn-primary btn-block">Open Investigation →</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- Guidelines -->
+          <section class="protocol-note-section paper-sheet">
+            <h4 class="font-serif">Facility Investigation Guidelines</h4>
+            <ul class="protocol-list">
+              <li><strong>Deterministic Solutions:</strong> Each research puzzle is governed by genuine internal data and reproducible logic.</li>
+              <li><strong>Cross-Verification:</strong> Findings in early modules (such as specimen IDs and timing) corroborate subsequent puzzles.</li>
+              <li><strong>Scientific Rigor:</strong> Puzzles require analyzing physical telemetry, Fraunhofer spectrometry bands, and chronometer thresholds without assistance.</li>
+            </ul>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Progress Bar -->
+    <footer class="facility-progress-bar" role="contentinfo">
+      <div class="progress-container">
+        <div class="progress-summary-col">
+          <div class="progress-label">
+            <span id="progressPercent" class="progress-percent">0%</span>
+            <span id="progressDesc" class="progress-desc">RECONSTRUCTED (0/4)</span>
+          </div>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="progress-steps-col">
+          <a href="specimens.html" id="stepBadge1" class="step-badge-btn" title="Module 01">
+            <div class="step-num">01</div>
+            <div class="step-meta">
+              <span class="step-title">Specimen</span>
+              <span id="stepToken1" class="step-token font-mono">---</span>
+            </div>
+          </a>
+
+          <a href="lab-notes.html" id="stepBadge2" class="step-badge-btn" title="Module 02">
+            <div class="step-num">02</div>
+            <div class="step-meta">
+              <span class="step-title">Lab Notes</span>
+              <span id="stepToken2" class="step-token font-mono">---</span>
+            </div>
+          </a>
+
+          <a href="growth-chart.html" id="stepBadge3" class="step-badge-btn" title="Module 03">
+            <div class="step-num">03</div>
+            <div class="step-meta">
+              <span class="step-title">Growth Slot</span>
+              <span id="stepToken3" class="step-token font-mono">---</span>
+            </div>
+          </a>
+
+          <a href="field-report.html" id="stepBadge4" class="step-badge-btn" title="Module 04">
+            <div class="step-num">04</div>
+            <div class="step-meta">
+              <span class="step-title">Field Report</span>
+              <span id="stepToken4" class="step-token font-mono">---</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="progress-action-col">
+          <button id="bottomEvidenceBtn" class="btn btn-secondary btn-sm">🏆 Evidence Dossier</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Evidence Modal -->
+  <div id="evidenceModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container evidence-modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="font-serif">RESEARCH DOSSIER & EVIDENCE</h3>
+          <p class="modal-subtitle">Recovered Experimental Fragments</p>
+        </div>
+        <button class="btn-icon modal-close-trigger" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="evidence-list">
+          <div id="evItem1" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 01 — Module 01: Catalogue</span>
+              <span id="evItem1Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem1Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+            <div class="evidence-footer-row">
+              <span>Identified through light sensitivity and absence of midday solar peak.</span>
+            </div>
+          </div>
+
+          <div id="evItem2" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 02 — Module 02: Lab Notes</span>
+              <span id="evItem2Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem2Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+            <div class="evidence-footer-row">
+              <span>Peak relative activity occurs 6 hours post lights-out (02:00 midnight).</span>
+            </div>
+          </div>
+
+          <div id="evItem3" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 03 — Module 03: Growth Analysis</span>
+              <span id="evItem3Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem3Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+            <div class="evidence-footer-row">
+              <span>Arithmetic series coordinate where the anomalous signal first sustained.</span>
+            </div>
+          </div>
+
+          <div id="evItem4" class="evidence-card evidence-locked">
+            <div class="evidence-header-row">
+              <span class="evidence-source-tag font-mono">PART 04 — Module 04: Field Report</span>
+              <span id="evItem4Stamp" class="archive-stamp stamp-restricted">🔒 NOT RECOVERED</span>
+            </div>
+            <div id="evItem4Val" class="evidence-value-box font-mono">NOT RECOVERED</div>
+            <div class="evidence-footer-row">
+              <span>The informal designation given by Dr. Voss for the dark-reactive flora.</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="evidenceCompleteBanner" class="evidence-complete-banner" style="display: none;">
+          <div>
+            <strong>ALL 4 RESEARCH PIECES ASSEMBLED</strong>
+            <p>The complete biological puzzle for Project NIGHTBLOOM has been synthesized.</p>
+          </div>
+          <a href="completion.html" class="btn btn-primary btn-sm">View Final Conclusion →</a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary modal-close-trigger">Close Dossier</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity Log Modal -->
+  <div id="logModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container log-modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="font-serif">FACILITY ACTIVITY LOG</h3>
+          <p class="modal-subtitle">VERDANT-9 Sensor & Audit Buffer</p>
+        </div>
+        <button class="btn-icon modal-close-trigger" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body log-modal-body font-mono">
+        <div id="logEntriesList" class="log-entries-list"></div>
+      </div>
+      <div class="modal-footer">
+        <span id="logBufferSize" class="font-mono text-muted">0 events</span>
+        <button class="btn btn-secondary modal-close-trigger">Close Log</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reset Confirmation Modal -->
+  <div id="resetModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="font-serif text-warning">Reset Research Archive?</h3>
+        <button class="btn-icon modal-close-trigger" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to clear your current progress and reset all four research modules back to unrecovered state?</p>
+        <div class="modal-callout-warning">
+          This will purge all local evidence keys (Specimen ID, Activity Pattern, Growth Slot, and Species Identification).
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary modal-close-trigger">Cancel</button>
+        <button id="confirmResetBtn" class="btn btn-danger">Confirm Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Update homepage card stamps
+    document.addEventListener('DOMContentLoaded', () => {
+      const state = Verdant.getState();
+      const cards = [
+        { id: 'stampCard1', pill: 'cardPill1', card: 'cardM1', done: state.completed.m1, token: state.evidence.specimenId ? `SPECIMEN ID: ${state.evidence.specimenId}` : 'NOT RECOVERED' },
+        { id: 'stampCard2', pill: 'cardPill2', card: 'cardM2', done: state.completed.m2, token: state.evidence.activityPattern ? `PATTERN: ${state.evidence.activityPattern}` : 'NOT RECOVERED' },
+        { id: 'stampCard3', pill: 'cardPill3', card: 'cardM3', done: state.completed.m3, token: state.evidence.observationSlot ? `SLOT: ${state.evidence.observationSlot}` : 'NOT RECOVERED' },
+        { id: 'stampCard4', pill: 'cardPill4', card: 'cardM4', done: state.completed.m4, token: state.evidence.species ? `SPECIES: ${state.evidence.species}` : 'NOT RECOVERED' }
+      ];
+
+      cards.forEach(c => {
+        const stamp = document.getElementById(c.id);
+        const pill = document.getElementById(c.pill);
+        const cardEl = document.getElementById(c.card);
+        if (stamp && c.done) {
+          stamp.className = 'card-status-stamp stamp-recovered font-mono';
+          stamp.textContent = '✓ RECOVERED';
+        }
+        if (pill) pill.textContent = c.token;
+        if (cardEl && c.done) cardEl.classList.add('card-completed');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Completion: Project NIGHTBLOOM — VERDANT-9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="verdant-shell">
+    <!-- TopBar -->
+    <header class="facility-topbar" role="banner">
+      <div class="topbar-left">
+        <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+        <a href="index.html" class="facility-brand">
+          <div class="brand-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">VERDANT-9</div>
+            <div class="brand-sub">BOTANICAL RESEARCH FACILITY</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="topbar-center">
+        <div class="status-pill status-archive">
+          <span class="status-dot pulsing"></span>
+          <span class="status-label">ARCHIVE STATUS:</span>
+          <span id="archiveStatusVal" class="status-val">FULLY RECONSTRUCTED</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button id="topbarEvidenceBtn" class="btn-toolbar" title="View Evidence Dossier">
+          🏆 <span class="toolbar-btn-text">Evidence</span>
+          <span id="evidenceCounter" class="evidence-counter">4/4</span>
+        </button>
+        <button id="topbarLogBtn" class="btn-toolbar" title="View Activity Log">
+          📟 <span class="toolbar-btn-text">Log</span>
+        </button>
+        <button id="topbarResetBtn" class="btn-toolbar btn-toolbar-danger" title="Reset Progress">
+          ↺ <span class="toolbar-btn-text">Reset</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="facility-body-grid">
+      <!-- Sidebar -->
+      <aside id="researchSidebar" class="research-sidebar" aria-label="Research Modules">
+        <div class="sidebar-header">
+          <div class="sidebar-section-title">RESEARCH MODULES</div>
+          <div class="sidebar-subtext">Classified Dossier 2049-N9</div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-link">
+            <div class="link-icon-col">📄</div>
+            <div class="link-text-col">
+              <div class="link-title">Facility Briefing</div>
+              <div class="link-subtitle">Archive Overview & Memos</div>
+            </div>
+          </a>
+
+          <a href="specimens.html" class="sidebar-link">
+            <div class="link-icon-col">🌿</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 01: Catalogue</div>
+              <div class="link-subtitle">Specimen Screening</div>
+              <div id="sidePill1" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="lab-notes.html" class="sidebar-link">
+            <div class="link-icon-col">🧪</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 02: Lab Notes</div>
+              <div class="link-subtitle">Chronobiology Data</div>
+              <div id="sidePill2" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="growth-chart.html" class="sidebar-link">
+            <div class="link-icon-col">📈</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 03: Growth Analysis</div>
+              <div class="link-subtitle">Cycle Synchronization</div>
+              <div id="sidePill3" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="field-report.html" class="sidebar-link">
+            <div class="link-icon-col">📋</div>
+            <div class="link-text-col">
+              <div class="link-title">Module 04: Field Report</div>
+              <div class="link-subtitle">Final Synthesis</div>
+              <div id="sidePill4" class="link-evidence-pill font-mono"></div>
+            </div>
+          </a>
+
+          <a href="completion.html" class="sidebar-link active">
+            <div class="link-icon-col">✨</div>
+            <div class="link-text-col">
+              <div class="link-title">Conclusion: Nightbloom</div>
+              <div class="link-subtitle">Experiment Discovery</div>
+            </div>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Page Content -->
+      <main class="facility-main-content">
+        <div class="completion-page-container">
+          <!-- Advisory if entered early -->
+          <div id="earlyAdvisory" style="display: none; padding: 1rem 1.5rem; background-color: #FAF5EB; border-left: 4px solid var(--muted-gold); margin-bottom: 1rem; font-size: 0.85rem;" class="paper-sheet">
+            RESEARCH ADVISORY: The final species identification has not yet been submitted in Module 04. You can explore this chamber or return to complete the investigation.
+            <div style="margin-top: 0.5rem;"><a href="field-report.html" class="btn btn-secondary btn-sm">Return to Field Report →</a></div>
+          </div>
+
+          <!-- Hero Completion Section -->
+          <section class="completion-hero paper-sheet">
+            <div class="completion-status-header">
+              <span class="archive-stamp stamp-recovered font-mono">
+                ✓ RESEARCH ARCHIVE RECONSTRUCTED
+              </span>
+              <span class="facility-tag font-mono">VERDANT-9 ARCHIVE RESTORED</span>
+            </div>
+
+            <!-- Glowing Nightbloom Botanical Illustration -->
+            <div class="completion-visual-showcase">
+              <div class="showcase-glow-ring"></div>
+              <svg width="220" height="220" viewBox="0 0 200 200" fill="none" class="bioluminescent-glow" role="img" aria-label="Bioluminescent Nightbloom plant">
+                <circle cx="100" cy="100" r="92" fill="#F4FAF8" stroke="#B8E0D7" stroke-width="2" stroke-dasharray="4 3"/>
+                <circle cx="100" cy="85" r="50" fill="rgba(114, 217, 197, 0.45)"/>
+                <path d="M100 185 Q94 135 100 95" stroke="#183D32" stroke-width="4.5" stroke-linecap="round"/>
+                <!-- Broad foliage with cyan venation -->
+                <path d="M98 150 C65 145 48 122 55 105 C70 115 88 132 98 150Z" fill="#205043" stroke="#183D32" stroke-width="1.5"/>
+                <path d="M60 112 C72 124 88 138 98 150" stroke="#72D9C5" stroke-width="1"/>
+                <path d="M102 135 C135 130 152 108 145 92 C130 102 112 118 102 135Z" fill="#205043" stroke="#183D32" stroke-width="1.5"/>
+                <path d="M140 98 C128 110 112 124 102 135" stroke="#72D9C5" stroke-width="1"/>
+                <!-- Nocturnal petals -->
+                <g transform="translate(100, 85)">
+                  <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5"/>
+                  <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(72)"/>
+                  <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(144)"/>
+                  <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(216)"/>
+                  <path d="M0 -6 C-12 -22 -6 -40 0 -48 C6 -40 12 -22 0 -6Z" fill="#44A895" stroke="#72D9C5" stroke-width="1.5" transform="rotate(288)"/>
+                  <circle cx="0" cy="0" r="10" fill="#183D32" stroke="#72D9C5" stroke-width="2"/>
+                  <circle cx="0" cy="0" r="5" fill="#72D9C5"/>
+                </g>
+                <text x="100" y="192" text-anchor="middle" fill="#256B5C" font-weight="bold" font-size="9" font-family="monospace">
+                  PROJECT NIGHTBLOOM / SPECIMEN V-09
+                </text>
+              </svg>
+            </div>
+
+            <!-- Required Canonical Titles -->
+            <div class="completion-titles">
+              <h1 class="completion-main-title font-serif">PROJECT NIGHTBLOOM</h1>
+              <div class="completion-subtitle font-mono">SPECIES IDENTIFICATION CONFIRMED</div>
+            </div>
+
+            <div style="margin: 1.5rem 0; font-size: 1.5rem; color: var(--bioluminescent-cyan);">✨ ✨ ✨</div>
+
+            <!-- Canonical Narrative Text -->
+            <div class="completion-narrative-body font-serif">
+              <p>
+                Dr. Elara Voss's final experiment was an attempt to understand how a plant could synchronise its biological activity with its environment.
+              </p>
+              <p>
+                The records appeared contradictory because the specimens had been measured at different points in the facility's lighting cycle. Once the catalogue, laboratory notes, growth observations, and field report were reconstructed, the answer became clear.
+              </p>
+              <p class="narrative-highlight">
+                V-09 was the Nightbloom.
+              </p>
+              <p>
+                The final experiment was not lost. It was waiting to be understood.
+              </p>
+            </div>
+
+            <!-- Reconstructed Experimental Dossier -->
+            <div class="recovered-summary-box paper-sheet-torn font-mono">
+              <div style="font-weight: 700; color: var(--deep-forest); margin-bottom: 0.85rem;">
+                🏆 RECONSTRUCTED EXPERIMENTAL DOSSIER
+              </div>
+              <div class="summary-grid">
+                <div class="summary-cell">
+                  <span class="cell-label">SPECIMEN ID:</span>
+                  <strong id="finalDossierId" class="cell-val text-primary">V-09</strong>
+                </div>
+                <div class="summary-cell">
+                  <span class="cell-label">ACTIVITY PATTERN:</span>
+                  <strong id="finalDossierPattern" class="cell-val text-primary">DARK-CYCLE</strong>
+                </div>
+                <div class="summary-cell">
+                  <span class="cell-label">OBSERVATION SLOT:</span>
+                  <strong id="finalDossierSlot" class="cell-val text-primary">09</strong>
+                </div>
+                <div class="summary-cell">
+                  <span class="cell-label">CONFIRMED SPECIES:</span>
+                  <strong id="finalDossierSpecies" class="cell-val text-primary">NIGHTBLOOM</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="completion-actions-bar">
+              <a href="index.html" class="btn btn-primary">📖 Return to Briefing & Overview</a>
+              <button id="reviewDossierBtn" class="btn btn-secondary">🏆 Review Recovered Evidence</button>
+              <a href="specimens.html" class="btn btn-secondary">🌿 Revisit Research Modules</a>
+              <button id="completionRestartBtn" class="btn btn-danger">↺ Restart Investigation</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Progress Bar -->
+    <footer class="facility-progress-bar" role="contentinfo">
+      <div class="progress-container">
+        <div class="progress-summary-col">
+          <div class="progress-label">
+            <span id="progressPercent" class="progress-percent">100%</span>
+            <span id="progressDesc" class="progress-desc">RECONSTRUCTED (4/4)</span>
+          </div>
+          <div class="progress-track"><div id="progressFill" class="progress-fill" style="width: 100%;"></div></div>
+        </div>
+        <div class="progress-steps-col">
+          <a href="specimens.html" id="stepBadge1" class="step-badge-btn step-completed" title="Module 01"><div class="step-num">01</div><div class="step-meta"><span class="step-title">Specimen</span><span id="stepToken1" class="step-token font-mono">V-09</span></div></a>
+          <a href="lab-notes.html" id="stepBadge2" class="step-badge-btn step-completed" title="Module 02"><div class="step-num">02</div><div class="step-meta"><span class="step-title">Lab Notes</span><span id="stepToken2" class="step-token font-mono">DARK-CYCLE</span></div></a>
+          <a href="growth-chart.html" id="stepBadge3" class="step-badge-btn step-completed" title="Module 03"><div class="step-num">03</div><div class="step-meta"><span class="step-title">Growth Slot</span><span id="stepToken3" class="step-token font-mono">09</span></div></a>
+          <a href="field-report.html" id="stepBadge4" class="step-badge-btn step-completed" title="Module 04"><div class="step-num">04</div><div class="step-meta"><span class="step-title">Field Report</span><span id="stepToken4" class="step-token font-mono">NIGHTBLOOM</span></div></a>
+        </div>
+        <div class="progress-action-col"><button id="bottomEvidenceBtn" class="btn btn-secondary btn-sm">🏆 Evidence Dossier</button></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Evidence Modal -->
+  <div id="evidenceModal" class="modal-backdrop">
+    <div class="modal-container evidence-modal">
+      <div class="modal-header"><h3 class="font-serif">RESEARCH DOSSIER & EVIDENCE</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body">
+        <div class="evidence-list">
+          <div id="evItem1" class="evidence-card evidence-recovered"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 01</span><span id="evItem1Stamp" class="archive-stamp stamp-recovered">✓ RECOVERED</span></div><div id="evItem1Val" class="evidence-value-box font-mono">SPECIMEN ID: V-09</div></div>
+          <div id="evItem2" class="evidence-card evidence-recovered"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 02</span><span id="evItem2Stamp" class="archive-stamp stamp-recovered">✓ RECOVERED</span></div><div id="evItem2Val" class="evidence-value-box font-mono">ACTIVITY PATTERN: DARK-CYCLE</div></div>
+          <div id="evItem3" class="evidence-card evidence-recovered"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 03</span><span id="evItem3Stamp" class="archive-stamp stamp-recovered">✓ RECOVERED</span></div><div id="evItem3Val" class="evidence-value-box font-mono">OBSERVATION SLOT: 09</div></div>
+          <div id="evItem4" class="evidence-card evidence-recovered"><div class="evidence-header-row"><span class="evidence-source-tag font-mono">PART 04</span><span id="evItem4Stamp" class="archive-stamp stamp-recovered">✓ RECOVERED</span></div><div id="evItem4Val" class="evidence-value-box font-mono">SPECIES: NIGHTBLOOM</div></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary modal-close-trigger">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Activity Log Modal -->
+  <div id="logModal" class="modal-backdrop">
+    <div class="modal-container log-modal">
+      <div class="modal-header"><h3 class="font-serif">FACILITY ACTIVITY LOG</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body log-modal-body font-mono"><div id="logEntriesList" class="log-entries-list"></div></div>
+      <div class="modal-footer"><span id="logBufferSize" class="font-mono text-muted">0 events</span><button class="btn btn-secondary modal-close-trigger">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Reset Modal -->
+  <div id="resetModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header"><h3 class="font-serif text-warning">Reset Research Archive?</h3><button class="btn-icon modal-close-trigger">✕</button></div>
+      <div class="modal-body"><p>Are you sure you want to clear your current progress and reset all four research modules back to unrecovered state?</p></div>
+      <div class="modal-footer"><button class="btn btn-secondary modal-close-trigger">Cancel</button><button id="confirmResetBtn" class="btn btn-danger">Confirm Reset</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const state = Verdant.getState();
+
+      if (!state.completed.m4) {
+        document.getElementById('earlyAdvisory').style.display = 'block';
+      } else {
+        Verdant.launchConfetti();
+      }
+
+      if (state.evidence.specimenId) document.getElementById('finalDossierId').textContent = state.evidence.specimenId;
+      if (state.evidence.activityPattern) document.getElementById('finalDossierPattern').textContent = state.evidence.activityPattern;
+      if (state.evidence.observationSlot) document.getElementById('finalDossierSlot').textContent = state.evidence.observationSlot;
+      if (state.evidence.species) document.getElementById('finalDossierSpecies').textContent = state.evidence.species;
+
+      document.getElementById('reviewDossierBtn').addEventListener('click', () => {
+        Verdant.openModal('evidenceModal');
+      });
+
+      document.getElementById('completionRestartBtn').addEventListener('click', () => {
+        Verdant.openModal('resetModal');
+      });
+    });
+  </script>
+</body>
+</html>
